@@ -1,0 +1,47 @@
+import { useEffect, usestate } from "react"
+
+export default function ToiletsLayer({children}) {
+    const [geoJson, setGeoJson] = useState(null);
+    const [error, setError] = useState(null);
+
+    children vs. normale Props
+}
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import GeoJsonMap from "../../components/GeoJsonMap";
+import "./MapPage.css";
+
+
+export default function MapPage() {
+    const [params] = useSearchParams();
+    const start = params.get("start");
+    const destination = params.get("destination");
+
+    const [toiletsGeoJson, setToiletsGeoJson] = useState(null);
+        
+    useEffect(() => {
+        fetch("https://gdi.berlin.de/services/wfs/toiletten?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=toiletten&SRSNAME=EPSG:4326&OUTPUTFORMAT=application/json")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("features", data.features?.length);
+                console.log(
+                    "first coords:", 
+                    data.features?.[0]?.geometry?.coordinates);
+                setToiletsGeoJson(data);
+            })
+            .catch(console.error);
+    },[]);
+
+    return(
+        <div className="mapLayout">
+            <div className="mapTopBar">
+                <span><strong>Start:</strong> {start || "-"}</span>
+                <span><strong>Ziel:</strong> {destination || "-"}</span>
+            </div>
+
+            <div className="mapArea">
+                <GeoJsonMap geoJson={toiletsGeoJson}/>
+            </div>
+        </div>
+    );
+}  

@@ -1,0 +1,61 @@
+.an-header {
+  background: #262556;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+.an-header .an-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.brand {
+  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.32px;
+  margin: 0;
+  color: white;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 18px;
+  opacity: 0.95;
+}
+.nav-links a.signup {
+  color: #000; 
+  margin-left: 8px;
+}
+.nav-cta {
+  background: #ECEBF2;
+  color: #262556;
+  border-radius: 70px;
+  padding: 0;
+  width: 126px;
+  height: 63px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-decoration: none;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
