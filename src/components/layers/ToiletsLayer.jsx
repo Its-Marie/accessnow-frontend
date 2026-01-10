@@ -5,9 +5,8 @@ export default function ToiletsLayer({children}) {
     const [error, setError] = useState(null);
     
     useEffect(() => {
-        const url =
-        "https://gdi.berlin.de/services/wfs/toiletten?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=toiletten&SRSNAME=EPSG:4326&OUTPUTFORMAT=application/json"
-        
+        const url = "http://127.0.0.1:5000/api/toilets";
+
         let cancelled = false;
 
         fetch(url)
