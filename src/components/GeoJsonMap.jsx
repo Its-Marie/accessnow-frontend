@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -17,7 +17,7 @@ function FixLeafletSize() {
 export default function GeoJsonMap({
   center= [52.52, 13.405],
   zoom = 13,
-  geoJson,
+  children,
 }) {
    return (
     <MapContainer
@@ -34,20 +34,7 @@ export default function GeoJsonMap({
         attribution="&copy; OpenStreetMap contributors"
         maxZoom={22}
       />
-      {geoJson && (
-        <GeoJSON
-          data={geoJson}
-          onEachFeature={(feature, layer) => {
-            const name = feature?.properties?.name;
-            const wheelchair = feature?.properties?.wheelchair;
-            if (name) {
-              layer.bindPopup(
-                `<b>${name}</b>${wheelchair ? `<br/>Wheelchair: ${wheelchair}`:""}`
-              );
-            }
-          }}
-        />
-      )}
+      {children}
     </MapContainer>
   );
 }
