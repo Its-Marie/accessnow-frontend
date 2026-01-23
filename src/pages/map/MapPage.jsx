@@ -21,6 +21,7 @@ const endIcon = L.icon({
 
 function MapContent({ routeData, filters, onFilterChange }) {
     const map = useMap();
+    console.log(routeData)
 
     // Karte auf Route zentrieren
     if (routeData?.route) {
@@ -42,7 +43,7 @@ function MapContent({ routeData, filters, onFilterChange }) {
         };
         return styles[poiType] || { color: "#6b7280", fillColor: "#6b7280" };
     };
-
+ 
     return (
         <>
             {/* Route */}
@@ -68,7 +69,7 @@ function MapContent({ routeData, filters, onFilterChange }) {
             {/* POIs (gefiltert) */}
             {routeData?.pois && (
                 <GeoJSON
-                    key={JSON.stringify(filters)} // Re-render bei Filter-Änderung
+                    key={routeData?.pois?.features?.map(f => f.id ?? f.properties?.id ?? '').join('|')}
                     data={routeData.pois}
                     pointToLayer={(feature, latlng) => {
                         const style = getPoiStyle(feature.properties.poi_type);
@@ -124,35 +125,30 @@ export default function MapPage() {
         if (start && destination) {
             planRoute();
         }
-    }, [start, destination]);
+    }, [start, destination, filters]);
 
-    function planRoute() {
+    async function planRoute() {
         setLoading(true);
         setError(null);
 
-        fetch("http://127.0.0.1:5000/api/plan-route", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                start: start,
-                destination: destination,
-                ...filters
+        try{
+            const res = await fetch("http://127.0.0.1:5000/api/plan-route", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    start: start,
+                    destination: destination,
+                    ...filters
+                })
             })
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) {
-                    setError(data.error);
-                } else {
-                    setRouteData(data);
-                }
-                setLoading(false);
-            })
-            .catch(err => {
-                setError("Fehler beim Laden der Route");
-                setLoading(false);
-                console.error(err);
-            });
+            const data = await res.json()
+            setRouteData(data);
+        } catch (err) {
+            setError("Fehler beim Laden der Route");
+            console.error(err);
+        } finally {     
+            setLoading(false);
+        }  
     }
 
     function toggleFilter(filterName) {
@@ -161,25 +157,26 @@ export default function MapPage() {
             [filterName]: !filters[filterName]
         };
         setFilters(newFilters);
-        
+        console.log({newFilters})
         // Route mit neuen Filtern neu laden
-        if (start && destination) {
-            fetch("http://127.0.0.1:5000/api/plan-route", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    start: start,
-                    destination: destination,
-                    ...newFilters
-                })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (!data.error) {
-                        setRouteData(data);
-                    }
-                });
-        }
+        // if (start && destination) {
+        //    planRoute()
+        //     fetch("http://127.0.0.1:5000/api/plan-route", {
+        //         method: "POST",
+        //         headers: { "Content-Type": "application/json" },
+        //         body: JSON.stringify({
+        //             start: start,
+        //             destination: destination,
+        //             ...newFilters
+        //         })
+        //     })
+        //         .then(res => res.json())
+        //         .then(data => {
+        //             if (!data.error) {
+        //                 setRouteData(data);
+        //             }
+        //         });
+        //}
     }
 
     return (
