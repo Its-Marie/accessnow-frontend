@@ -193,6 +193,15 @@
   color: var(--muted);
 }
 
+.feature-card--steps ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.feature-card--steps li {
+  margin-bottom: 0.4rem;
+}
+
 @media (max-width: 720px) {
   .landing {
     padding-top: 150px;

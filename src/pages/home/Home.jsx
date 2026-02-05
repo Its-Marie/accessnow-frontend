@@ -35,7 +35,7 @@ export default function Home() {
               Plan routes with step-free paths, and clear guidance for every mobility need.
             </p>
 
-            <form className="route-form" onSubmit={handlePlanRoute} aria-label="Plan route">
+            <form className="route-form" onSubmit={handlePlanRoute} aria-label="Find route">
               <div className="form-field">
                 <label htmlFor="start">Start</label>
                 <input
@@ -65,7 +65,7 @@ export default function Home() {
               </div>
 
               <div className="form-actions">
-                <button type="submit">Plan route</button>
+                <button type="submit">Find route</button>
                 <Link to="/login" className="ghost-button">
                   Log in to see recent trips
                 </Link>
@@ -95,21 +95,23 @@ export default function Home() {
 
         <section className="feature-grid" aria-label="Highlights">
           <article className="feature-card">
-            <p className="eyebrow">Inclusive by default</p>
-            <h2>Clarity for every user</h2>
-            <p>
-              High-contrast palette, readable typography, and keyboard-first flows keep the experience frictionless.
-            </p>
+            <p className="eyebrow">Easy to use</p>
+            <h2>Clear, readable navigation</h2>
+            <p>Large text, strong contrast, and a calm layout make routes easy to read — on the go, in sunlight, or when you just need things to be simple.</p>
           </article>
           <article className="feature-card">
-            <p className="eyebrow">Access intelligence</p>
-            <h2>Step-free routing</h2>
-            <p>Parking, public restrooms, real-time elevator status. Choose routes that match your mobility aids.</p>
+            <p className="eyebrow">Flexible routes</p>
+            <h2>Step-free when it matters</h2>
+            <p>    Prefer routes with fewer barriers — helpful for strollers, fatigue, or mobility needs. Discover elevators, accessible parking, and public restrooms along the way, with live elevator status where available.</p>
           </article>
-          <article className="feature-card">
-            <p className="eyebrow">Privacy first</p>
-            <h2>Local-first preferences</h2>
-            <p>We keep your mobility settings on your device; you control when to share.</p>
+          <article className="feature-card feature-card--steps">
+            <p className="eyebrow">Simple process</p>
+            <h2>How it works</h2>
+            <ol className="feature-steps">
+              <li>Enter your start and destination</li>
+              <li>We find a route with fewer barriers</li>
+              <li>See helpful places along the way</li>
+            </ol>
           </article>
         </section>
       </main>
