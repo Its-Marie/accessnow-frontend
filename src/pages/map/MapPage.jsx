@@ -114,7 +114,7 @@ const endIcon = L.icon({
 });
 
 
-function MapContent({ routeData, filters, onFilterChange }) {
+function MapContent({ routeData, radiusMeters }) {
     const map = useMap();
     console.log(routeData)
 
@@ -137,14 +137,14 @@ function MapContent({ routeData, filters, onFilterChange }) {
             parking:  { color: "#991b1b", fillColor: "#dc2626", dashArray: "2 4" }    // dotted-ish
         };
         return styles[poiType] || { color: "#6b7280", fillColor: "#6b7280", dashArray: "0" };
-        };
+    };
 
-    // Filter POIs within 400m radius
+    // Filter POIs within radius
     const filteredPOIs = routeData?.route && routeData?.pois 
         ? filterPOIsByDistance(
             routeData.pois, 
             routeData.route.geometry.coordinates, 
-            400 // Distance in meters
+            radiusMeters
           )
         : routeData?.pois;
  
@@ -170,7 +170,7 @@ function MapContent({ routeData, filters, onFilterChange }) {
                 </>
             )}
 
-            {routeData?.pois && (
+            {filteredPOIs && (
                 <GeoJSON
                     key={filteredPOIs?.features?.map(f => f.id ?? f.properties?.id ?? '').join('|')}
                     data={filteredPOIs}
@@ -222,6 +222,8 @@ export default function MapPage() {
         show_elevators: true,
         show_parking: true
     });
+
+    const [radiusMeters, setRadiusMeters] = useState(400);
 
     useEffect(() => {
         if (start && destination) {
@@ -299,9 +301,8 @@ export default function MapPage() {
                         checked={filters.show_toilets}
                         onChange={() => toggleFilter('show_toilets')}
                     />
-                    <span className="filterBadge filterBadge--toilet" aria-hidden="true">
-                        🚻
-                    </span>
+                    <span className="markerDot markerDot--toilet" aria-hidden="true" />
+                    <span className="filterIcon" aria-hidden="true">🚻</span>
                     <span className="filterText">
                         <span className="filterTitle">Toilets</span>
                     </span>
@@ -314,12 +315,15 @@ export default function MapPage() {
                         checked={filters.show_elevators}
                         onChange={() => toggleFilter("show_elevators")}
                     />
-                    <span className="filterBadge filterBadge--elevator" aria-hidden="true">
+                    <span className="markerDot markerDot--elevator" aria-hidden="true" />
+                    <span className="filterIcon" aria-hidden="true">
                     🛗
                     </span>
                     <span className="filterText">
                     <span className="filterTitle">Elevators</span>
                     </span>
+                    <span className="filterBadge filterBadge--elevator" aria-hidden="true"></span>
+
                 </label>
 
                 <label className="filterItem">
@@ -328,16 +332,66 @@ export default function MapPage() {
                     checked={filters.show_parking}
                     onChange={() => toggleFilter("show_parking")}
                     />
-                    <span className="filterBadge filterBadge--parking" aria-hidden="true">
+                    <span className="markerDot markerDot--parking" aria-hidden="true" />
+                    <span className="filterIcon" aria-hidden="true">
                     ♿
                     </span>
                     <span className="filterText">
                     <span className="filterTitle">Accessible parking</span>
                     </span>
+                    <span className="filterBadge filterBadge--parking" aria-hidden="true"></span>
+
                 </label>
-                <p className="filtersHint">
-                    Shown within 400 m of your route.
+                <p className="filtersHint" id="radius-hint">
+                    Shown within <strong>{radiusMeters}</strong> m of your route.
                 </p>
+
+                <details className="filtersExpander">
+                    <summary class="filtersExpanderSummary">Adjust distance</summary>
+                       
+                        <div className="radiusControls" role="group" aria-label="Distance from route">
+                            <label className="radiusRow">
+                                <span className="radiusLabel">Distance</span>
+                                <input
+                                    type="range"
+                                    min={100}
+                                    max={1200}
+                                    step={50}
+                                    value={radiusMeters}
+                                    onChange={(e) => setRadiusMeters(Number(e.target.value))}
+                                    aria-describedby="radius-hint"
+                                />
+                            </label>
+
+                            <label className="radiusRow">
+                                <span className="radiusLabel">Meters</span>
+                                <input
+                                    className="radiusNumber"
+                                    type="number"
+                                    min={100}
+                                    max={1200}
+                                    step={50}
+                                    value={radiusMeters}
+                                    onChange={(e) => setRadiusMeters(Number(e.target.value))}
+                                    aria-describedby="radius-hint"
+                                    inputMode="numeric"
+                                />
+                            </label>
+                            <div className="radiusActions">
+                                <button
+                                    type="button"
+                                    className="radiusReset"
+                                    onClick={() => setRadiusMeters(400)}
+                                >
+                                    Reset to 400 m
+                                </button>
+
+                                <span className="radiusCurrent" aria-live="polite">
+                                    Current: {radiusMeters} m
+                                </span>
+                            </div>
+                        </div>
+                </details>
             </div>
 
             {/* Map */}
@@ -349,8 +403,7 @@ export default function MapPage() {
                     {routeData && (
                         <MapContent 
                             routeData={routeData} 
-                            filters={filters}
-                            onFilterChange={toggleFilter}
+                            radiusMeters={radiusMeters}
                         />
                     )}
                 </GeoJsonMap>
