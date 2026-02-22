@@ -1,0 +1,58 @@
+{
+  "header": {
+    "help": "Hilfe",
+    "login": "Anmelden",
+    "signup": "Registrieren",
+    "brand": "AccessNow"
+  },
+  
+  "home": {
+    "eyebrow": "AccessNow+",
+    "title": "Navigation, die zu deinem Leben passt.",
+    "lede": "Plane Routen mit stufenfreien Wegen und klarer Führung für jede Mobilitätsanforderung.",
+    "wcag": "Entwickelt nach WCAG AA",
+
+    "form": {
+      "ariaLabel": "Route finden",
+      "startLabel": "Start",
+      "startPlaceholder": "Startpunkt eingeben",
+      "startHelp": "Adresse eingeben.",
+      "destinationLabel": "Ziel",
+      "destinationPlaceholder": "Ziel eingeben",
+      "submit": "Route finden",
+      "loginTrips": "Zum Anzeigen letzter Fahrten anmelden"
+    },
+
+    "hero": {
+      "imageAlt": "Menschen nutzen eine Navigations-App.",
+      "imageFallbackAlt": "Platzhaltergrafik.",
+      "figcaption": "Menschen mit unterschiedlichen Mobilitätsbedürfnissen."
+    },
+
+    "highlights": {
+      "ariaLabel": "Highlights",
+
+      "easy": {
+        "eyebrow": "Einfach zu nutzen",
+        "title": "Klare, gut lesbare Navigation",
+        "text": "Große Schrift, starker Kontrast und ein ruhiges Layout machen Routen leicht lesbar — unterwegs, bei Sonnenlicht oder wenn es einfach sein soll."
+      },
+
+      "flex": {
+        "eyebrow": "Flexible Routen",
+        "title": "Stufenfrei, wenn es zählt",
+        "text": "Bevorzuge Routen mit weniger Barrieren — hilfreich für Kinderwagen, bei Erschöpfung oder Mobilitätseinschränkungen. Entdecke Aufzüge, barrierefreie Parkplätze und öffentliche Toiletten entlang des Weges – mit Live-Aufzugstatus, sofern verfügbar."
+      },
+
+      "steps": {
+        "eyebrow": "Einfacher Ablauf",
+        "title": "So funktioniert’s",
+        "items": [
+          "Start und Ziel eingeben",
+          "Wir finden eine Route mit weniger Barrieren",
+          "Hilfreiche Orte entlang des Weges sehen"
+        ]
+      }
+    }
+  }
+}

@@ -68,3 +68,7 @@
   margin-left: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.brand-link {
+  color: inherit;
+  text-decoration: none;
+}

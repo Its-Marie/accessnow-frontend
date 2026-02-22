@@ -1,26 +1,27 @@
-import { Link, useNavigate } from "react-router-dom";
-import Header from "../../components/Header";
-import "./Home.css";
+import { Link, useNavigate } from "react-router-dom"
+import { useTranslation } from "react-i18next"
+import Header from "../../components/Header"
+import "./Home.css"
 
 export default function Home() {
-    const navigate =useNavigate();
+  const navigate = useNavigate()
+  const { t } = useTranslation("common")
 
-    function handlePlanRoute(e) {
-        e.preventDefault();
+  function handlePlanRoute(e) {
+    e.preventDefault()
 
-        const formData = new FormData(e.currentTarget);
-        const start = formData.get("start")
-        const destination = formData.get("destination")
+    const formData = new FormData(e.currentTarget)
+    const start = formData.get("start")
+    const destination = formData.get("destination")
 
-        navigate(
-          `/map?start=${encodeURIComponent(start)}&destination=${encodeURIComponent(destination)}`
-        );
-    }
+    navigate(
+      `/map?start=${encodeURIComponent(start)}&destination=${encodeURIComponent(destination)}`
+    )
+  }
 
   function handleHeroImageError(event) {
-    event.currentTarget.src = "/assets/hero-accessible-city-fallback.svg";
-    event.currentTarget.alt =
-      "Platzhaltergrafik.";
+    event.currentTarget.src = "/assets/hero-accessible-city-fallback.svg"
+    event.currentTarget.alt = t("home.hero.imageFallbackAlt")
   }
 
   return (
@@ -29,52 +30,52 @@ export default function Home() {
       <main id="main-content" className="landing" aria-labelledby="landing-title">
         <section className="landing-hero">
           <div className="hero-copy">
-            <p className="eyebrow">AccessNow+</p>
-            <h1 id="landing-title">Navigation that fits your life.</h1>
-            <p className="lede">
-              Plan routes with step-free paths, and clear guidance for every mobility need.
-            </p>
+            <p className="eyebrow">{t("home.eyebrow")}</p>
+            <h1 id="landing-title">{t("home.title")}</h1>
+            <p className="lede">{t("home.lede")}</p>
 
-            <form className="route-form" onSubmit={handlePlanRoute} aria-label="Find route">
+            <form
+              className="route-form"
+              onSubmit={handlePlanRoute}
+              aria-label={t("home.form.ariaLabel")}
+            >
               <div className="form-field">
-                <label htmlFor="start">Start</label>
+                <label htmlFor="start">{t("home.form.startLabel")}</label>
                 <input
                   id="start"
                   name="start"
                   type="text"
-                  placeholder="Enter starting point"
+                  placeholder={t("home.form.startPlaceholder")}
                   autoComplete="street-address"
                   aria-describedby="start-help"
                   required
                 />
                 <p id="start-help" className="field-help">
-                  Type an address.
+                  {t("home.form.startHelp")}
                 </p>
               </div>
 
               <div className="form-field">
-                <label htmlFor="destination">Destination</label>
+                <label htmlFor="destination">{t("home.form.destinationLabel")}</label>
                 <input
                   id="destination"
                   name="destination"
                   type="text"
-                  placeholder="Enter destination"
+                  placeholder={t("home.form.destinationPlaceholder")}
                   autoComplete="street-address"
                   required
                 />
               </div>
 
               <div className="form-actions">
-                <button type="submit">Find route</button>
+                <button type="submit">{t("home.form.submit")}</button>
                 <Link to="/login" className="ghost-button">
-                  Log in to see recent trips
+                  {t("home.form.loginTrips")}
                 </Link>
               </div>
             </form>
 
-            <div className="hero-footnote">
-              Built to meet WCAG AA
-            </div>
+            <div className="hero-footnote">{t("home.wcag")}</div>
           </div>
 
           <figure className="hero-visual">
@@ -82,39 +83,41 @@ export default function Home() {
               <img
                 className="hero-image"
                 src="/assets/hero-accessible-city.jpg.png"
-                alt="Menschen nutzen Navigations-App."
+                alt={t("home.hero.imageAlt")}
                 loading="lazy"
                 onError={handleHeroImageError}
               />
             </div>
             <figcaption className="visually-hidden">
-              Menschen mit unterschiedlichen Mobilitätsbedürfnissen.
+              {t("home.hero.figcaption")}
             </figcaption>
           </figure>
         </section>
 
-        <section className="feature-grid" aria-label="Highlights">
+        <section className="feature-grid" aria-label={t("home.highlights.ariaLabel")}>
           <article className="feature-card">
-            <p className="eyebrow">Easy to use</p>
-            <h2>Clear, readable navigation</h2>
-            <p>Large text, strong contrast, and a calm layout make routes easy to read — on the go, in sunlight, or when you just need things to be simple.</p>
+            <p className="eyebrow">{t("home.highlights.easy.eyebrow")}</p>
+            <h2>{t("home.highlights.easy.title")}</h2>
+            <p>{t("home.highlights.easy.text")}</p>
           </article>
+
           <article className="feature-card">
-            <p className="eyebrow">Flexible routes</p>
-            <h2>Step-free when it matters</h2>
-            <p>    Prefer routes with fewer barriers — helpful for strollers, fatigue, or mobility needs. Discover elevators, accessible parking, and public restrooms along the way, with live elevator status where available.</p>
+            <p className="eyebrow">{t("home.highlights.flex.eyebrow")}</p>
+            <h2>{t("home.highlights.flex.title")}</h2>
+            <p>{t("home.highlights.flex.text")}</p>
           </article>
+
           <article className="feature-card feature-card--steps">
-            <p className="eyebrow">Simple process</p>
-            <h2>How it works</h2>
+            <p className="eyebrow">{t("home.highlights.steps.eyebrow")}</p>
+            <h2>{t("home.highlights.steps.title")}</h2>
             <ol className="feature-steps">
-              <li>Enter your start and destination</li>
-              <li>We find a route with fewer barriers</li>
-              <li>See helpful places along the way</li>
+              <li>{t("home.highlights.steps.items.0")}</li>
+              <li>{t("home.highlights.steps.items.1")}</li>
+              <li>{t("home.highlights.steps.items.2")}</li>
             </ol>
           </article>
         </section>
       </main>
     </>
-  );
+  )
 }

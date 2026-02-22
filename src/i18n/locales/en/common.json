@@ -1,0 +1,58 @@
+{
+  "header": {
+    "help": "Help",
+    "login": "Login",
+    "signup": "Sign up",
+    "brand": "AccessNow"
+  },
+  
+  "home": {
+    "eyebrow": "AccessNow+",
+    "title": "Navigation that fits your life.",
+    "lede": "Plan routes with step-free paths, and clear guidance for every mobility need.",
+    "wcag": "Built to meet WCAG AA",
+
+    "form": {
+      "ariaLabel": "Find route",
+      "startLabel": "Start",
+      "startPlaceholder": "Enter starting point",
+      "startHelp": "Type an address.",
+      "destinationLabel": "Destination",
+      "destinationPlaceholder": "Enter destination",
+      "submit": "Find route",
+      "loginTrips": "Log in to see recent trips"
+    },
+
+    "hero": {
+      "imageAlt": "People using a navigation app.",
+      "imageFallbackAlt": "Placeholder graphic.",
+      "figcaption": "People with different mobility needs."
+    },
+
+    "highlights": {
+      "ariaLabel": "Highlights",
+
+      "easy": {
+        "eyebrow": "Easy to use",
+        "title": "Clear, readable navigation",
+        "text": "Large text, strong contrast, and a calm layout make routes easy to read — on the go, in sunlight, or when you just need things to be simple."
+      },
+
+      "flex": {
+        "eyebrow": "Flexible routes",
+        "title": "Step-free when it matters",
+        "text": "Prefer routes with fewer barriers — helpful for strollers, fatigue, or mobility needs. Discover elevators, accessible parking, and public restrooms along the way, with live elevator status where available."
+      },
+
+      "steps": {
+        "eyebrow": "Simple process",
+        "title": "How it works",
+        "items": [
+          "Enter your start and destination",
+          "We find a route with fewer barriers",
+          "See helpful places along the way"
+        ]
+      }
+    }
+  }
+}
