@@ -1,27 +1,33 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 import { LanguageSwitcher } from "./LanguageSwitcher"
-import "./Header.css";
+import "./Header.css"
 
 export default function Header() {
+  const { t } = useTranslation("common")
+
   return (
     <header className="an-header">
       <div className="an-container">
-        {/* Brand */}
-        <h1 className="brand">AccessNow</h1>
+        <h1 className="brand">
+          <Link to="/" className="brand-link">
+            {t("header.brand")}
+          </Link>
+        </h1>
 
-        {/* Navigation */}
         <div className="nav-right">
-          <nav className="nav-links">
-            <a href="/help">Help</a>
-            <a href="/login">Login</a>
+          <nav className="nav-links" aria-label="Primary">
+            <Link to="/help">{t("header.help")}</Link>
+            <Link to="/login">{t("header.login")}</Link>
           </nav>
 
-          <a href="/registration" className="nav-cta">
-            Sign up
-          </a>
+          <LanguageSwitcher />
+
+          <Link to="/registration" className="nav-cta">
+            {t("header.signup")}
+          </Link>
         </div>
       </div>
     </header>
-  );
+  )
 }
