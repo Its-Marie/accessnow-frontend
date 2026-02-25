@@ -85,6 +85,38 @@
 }
 
 /* =====================================================
+   LOGOUT BUTTON
+   ===================================================== */
+
+.nav-link-button {
+  /* Reset browser defaults */
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  /* Match nav link style exaktly */
+  color: white;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 18px;
+  opacity: 0.95;
+
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-link-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 1;
+}
+
+.nav-link-button:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =====================================================
    SIGN UP BUTTON
    ===================================================== */
 
@@ -209,6 +241,11 @@
     padding: 8px 10px;
   }
 
+  .nav-link-button {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+
   .nav-cta {
     width: auto;
     height: 44px;
@@ -238,6 +275,7 @@
     font-size: 14px;
   }
 }
+
 .landing {
   padding-top: 120px; /* adjust if header height changes */
 }

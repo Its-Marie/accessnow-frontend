@@ -96,7 +96,7 @@ export default function Registration() {
         const err = await response.json().catch(() => ({}));
         setStatus({
           state:"error", 
-          message: err.message || 'Registration failed'
+          message: err.description || err.message || 'Registration failed'
         });
         return;
       }

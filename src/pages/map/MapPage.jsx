@@ -262,29 +262,10 @@ export default function MapPage() {
         };
         setFilters(newFilters);
         console.log({newFilters})
-        // Route mit neuen Filtern neu laden
-        // if (start && destination) {
-        //    planRoute()
-        //     fetch("http://127.0.0.1:5000/api/plan-route", {
-        //         method: "POST",
-        //         headers: { "Content-Type": "application/json" },
-        //         body: JSON.stringify({
-        //             start: start,
-        //             destination: destination,
-        //             ...newFilters
-        //         })
-        //     })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             if (!data.error) {
-        //                 setRouteData(data);
-        //             }
-        //         });
-        //}
     }
 
     return (
-        <div className="mapLayout">
+        <main className="mapLayout">
             <div className="mapTopBar">
                 <div>
                     <strong>Start:</strong> {start || "-"}
@@ -408,6 +389,6 @@ export default function MapPage() {
                     )}
                 </GeoJsonMap>
             </div>
-        </div>
+        </main>
     );
 }

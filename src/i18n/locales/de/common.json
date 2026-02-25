@@ -2,6 +2,7 @@
   "header": {
     "help": "Hilfe",
     "login": "Anmelden",
+    "logout": "Abmelden",
     "signup": "Registrieren",
     "brand": "AccessNow"
   },

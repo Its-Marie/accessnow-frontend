@@ -5,10 +5,12 @@ import Registration from "./pages/auth/Registration";
 import Preferences from "./pages/personalization/Preferences";
 import Login from "./pages/auth/Login";
 import MapPage from "./pages/map/MapPage";
+import Header from "./components/Header"
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/map" element={<MapPage />} />

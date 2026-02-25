@@ -1,10 +1,11 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import React, { useState } from "react";
 import "./Login.css";
 import { API_BASE } from '../../config/api';
 
 export default function Login() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [status, setStatus] = useState({ state: "idle", message: "" });
   const [formValues, setFormValues] = useState({ email: "", password: "" });
 
@@ -13,33 +14,29 @@ export default function Login() {
     setStatus({ state: "loading", message: "Signing you in..." });
 
     try {
-      const response = await fetch(`${API_BASE}/api/login`, {
+      const res = await fetch(`${API_BASE}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formValues),
+        body: JSON.stringify({
+          email: formValues.email,
+          password: formValues.password,
+        }),
       });
 
-      if (!response.ok) {
-        const err = await response.json().catch(() => ({}));
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
         const msg = err.description || err.message || "Login failed. Check your credentials.";
         setStatus({ state: "error", message: msg });
         return;
       }
 
-      const data = await response.json();
+      const data = await res.json();
+      localStorage.setItem("token", data.access_token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      window.dispatchEvent(new Event("auth-change"));
       setStatus({ state: "success", message: data.message || "Signed in successfully." });
-      try {
-        if (data.token) {
-          localStorage.setItem("authToken", data.token);
-        }
+      setTimeout(() => navigate("/"), 500);
 
-        const sessionId = data.sessionId || data.session;
-        if (sessionId) {
-          localStorage.setItem("sessionId", sessionId);
-        }
-      } catch (storageError) {
-        console.warn("Unable to persist auth state", storageError);
-      }
     } catch (error) {
       setStatus({ state: "error", message: "Network error. Please try again." });
     }

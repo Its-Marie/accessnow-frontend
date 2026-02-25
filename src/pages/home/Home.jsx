@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useTranslation } from "react-i18next"
-import Header from "../../components/Header"
 import "./Home.css"
 
 export default function Home() {
@@ -26,7 +25,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <main id="main-content" className="landing" aria-labelledby="landing-title">
         <section className="landing-hero">
           <div className="hero-copy">
