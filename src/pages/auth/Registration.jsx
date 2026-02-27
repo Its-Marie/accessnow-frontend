@@ -1,11 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 import "./Registration.css";
 import { API_BASE } from '../../config/api';
 
 export default function Registration() {
   const [step, setStep] = useState(1);
   const location = useLocation();
+  const { t } = useTranslation("common");
 
   const [formData, setFormData] = useState({
     name: '',
@@ -19,8 +21,9 @@ export default function Registration() {
       theme: 'system'
     }
   });
-  const [status, setStatus] = useState({state:"idle", message:""});
-  
+
+  const [status, setStatus] = useState({ state: "idle", message: "" });
+
   function handleChange(e) {
     const { name, type, checked, value } = e.target;
     const newValue = type === "checkbox" ? checked : value;
@@ -47,30 +50,30 @@ export default function Registration() {
   }
 
   function validateStep1() {
-    setStatus({ state:"idle", message:"" })
+    setStatus({ state: "idle", message: "" });
 
     if (!formData.name.trim()) {
-      setStatus({ state: "error", message: "Name is required" });
+      setStatus({ state: "error", message: t("errors.nameRequired") });
       return false;
     }
 
     if (!formData.email.trim()) {
-      setStatus({ state: "error", message: "Email is required" });
+      setStatus({ state: "error", message: t("errors.emailRequired") });
       return false;
     }
 
     if (!formData.password) {
-      setStatus({ state: "error", message: "Password is required" });
+      setStatus({ state: "error", message: t("errors.passwordRequired") });
       return false;
     }
 
     if (formData.password.length < 8) {
-      setStatus({ state: "error", message: "Password must be at least 8 characters" });
+      setStatus({ state: "error", message: t("errors.passwordMin") });
       return false;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setStatus({ state: "error", message: "Passwords do not match" });
+      setStatus({ state: "error", message: t("errors.passwordsMismatch") });
       return false;
     }
 
@@ -79,90 +82,106 @@ export default function Registration() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    
-    setStatus({state:"loading", message:"Registering..."});
 
-    const {name, email, password, needs } = formData;
+    setStatus({ state: "loading", message: t("registration.loading") });
+
+    const { name, email, password, needs } = formData;
+
     try {
-      const response = await fetch(`${API_BASE}/api/users`, {  
+      const response = await fetch(`${API_BASE}/api/users`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({name, email, password, needs}),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password, needs }),
       });
 
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
         setStatus({
-          state:"error", 
-          message: err.description || err.message || 'Registration failed'
+          state: "error",
+          message: err.description || err.message || t("errors.registrationFailed")
         });
         return;
       }
-       
 
-      setStatus({state:"success", message:"Registration successful!"});
+      setStatus({ state: "success", message: t("registration.success") });
     } catch (error) {
       setStatus({
-        state:"error", 
-        message: error.message || 'An unexpected error occurred'
+        state: "error",
+        message: error.message || t("errors.unexpected")
       });
     }
   }
+
   return (
     <>
-      <h1>Registration</h1>
-      <h2 aria-live="polite">
-        Step {step} of 2
-      </h2>
-      <p>{location.pathname}</p>
-      
-      <form onSubmit={handleSubmit} className="registration-form">
+      <h1>{t("registration.title")}</h1>
 
+      <h2 aria-live="polite">
+        {t("registration.stepLabel", { step, total: 2 })}
+      </h2>
+
+      <p>{location.pathname}</p>
+
+      <form onSubmit={handleSubmit} className="registration-form">
         {step === 1 && (
           <>
             <div className="form-group">
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name"
+              <label htmlFor="name">{t("registration.name")}</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
                 value={formData.name}
                 onChange={handleChange}
-                required />
+                required
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email"
+              <label htmlFor="email">{t("registration.email")}</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required />
+                required
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Password:</label>
-              <input type="password" id="password" name="password"
+              <label htmlFor="password">{t("registration.password")}</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
                 value={formData.password}
                 onChange={handleChange}
-                required />
+                required
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password:</label>
-              <input type="password" id="confirmPassword" name="confirmPassword"
+              <label htmlFor="confirmPassword">{t("registration.confirmPassword")}</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                required />
+                required
+              />
             </div>
 
             <button
               type="button"
-              aria-label={`Continue registration to step ${step +1 } of two`}
+              aria-label={t("registration.ariaContinue", { next: step + 1, total: 2 })}
               onClick={() => {
                 if (!validateStep1()) return;
                 setStep(2);
               }}
             >
-              Continue
+              {t("registration.continue")}
             </button>
           </>
         )}
@@ -170,7 +189,8 @@ export default function Registration() {
         {step === 2 && (
           <>
             <fieldset>
-              <legend>Accessibility Preferences</legend>
+              <legend>{t("registration.preferencesLegend")}</legend>
+              <h2>{t("registration.displayedOnMap")}</h2>
 
               <label>
                 <input
@@ -179,7 +199,7 @@ export default function Registration() {
                   checked={formData.needs.elevators}
                   onChange={handleChange}
                 />
-                Elevator access
+                {t("registration.elevators")}
               </label>
 
               <label>
@@ -189,7 +209,7 @@ export default function Registration() {
                   checked={formData.needs.toilets}
                   onChange={handleChange}
                 />
-                Public toilets
+                {t("registration.toilets")}
               </label>
 
               <label>
@@ -199,11 +219,12 @@ export default function Registration() {
                   checked={formData.needs.accessible_parking}
                   onChange={handleChange}
                 />
-                Accessible parking
+                {t("registration.accessibleParking")}
               </label>
 
               <div>
-                <p>Theme</p>
+                <p>{t("registration.themeTitle")}</p>
+
                 <label>
                   <input
                     type="radio"
@@ -212,7 +233,7 @@ export default function Registration() {
                     checked={formData.needs.theme === "system"}
                     onChange={handleChange}
                   />
-                  Automatic
+                  {t("registration.themeSystem")}
                 </label>
 
                 <label>
@@ -223,7 +244,7 @@ export default function Registration() {
                     checked={formData.needs.theme === "light"}
                     onChange={handleChange}
                   />
-                  Light
+                  {t("registration.themeLight")}
                 </label>
 
                 <label>
@@ -234,38 +255,39 @@ export default function Registration() {
                     checked={formData.needs.theme === "dark"}
                     onChange={handleChange}
                   />
-                  Dark
+                  {t("registration.themeDark")}
                 </label>
               </div>
             </fieldset>
 
             <button type="submit" disabled={status.state === "loading"}>
-              {status.state === "loading" ? "Registering..." : "Create Account"}
+              {status.state === "loading"
+                ? t("registration.loading")
+                : t("registration.createAccount")}
             </button>
 
-            <button 
-              type="button" 
-              aria-label="Go back to step 1 of 2"
+            <button
+              type="button"
+              aria-label={t("registration.ariaBack", { step: 1, total: 2 })}
               onClick={() => {
-                setStatus({ state:"idle", message:""});
-                setStep(1)
+                setStatus({ state: "idle", message: "" });
+                setStep(1);
               }}
-              >
-              Back
+            >
+              {t("registration.back")}
             </button>
           </>
         )}
-
       </form>
+
       {status.state === "error" && <p className="error-message">{status.message}</p>}
       {status.state === "success" && <p className="success-message">{status.message}</p>}
 
-      <Link to="/">Home</Link>
+      <Link to="/">{t("nav.home")}</Link>
       <br />
-      <Link to="/login">Login</Link>
+      <Link to="/login">{t("nav.login")}</Link>
       <br />
-      <Link to="/preferences">Preferences</Link>
+      <Link to="/preferences">{t("nav.preferences")}</Link>
     </>
   );
 }
-

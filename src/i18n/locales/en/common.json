@@ -4,14 +4,15 @@
     "login": "Login",
     "logout": "Logout",
     "signup": "Sign up",
+    "home": "Home",
     "brand": "AccessNow"
   },
-  
+
   "home": {
     "eyebrow": "AccessNow+",
     "title": "Navigation that fits your life.",
-    "lede": "Plan routes with step-free paths, and clear guidance for every mobility need.",
-    "wcag": "Built to meet WCAG AA",
+    "lede": "Plan routes with step-free paths and clear guidance for every mobility need.",
+    "wcag": "Built to meet WCAG AA standard",
 
     "form": {
       "ariaLabel": "Find route",
@@ -55,5 +56,241 @@
         ]
       }
     }
+  },
+
+  "registration": {
+    "title": "Registration",
+    "stepLabel": "Step {{step}} of {{total}}",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "continue": "Continue",
+    "createAccount": "Create account",
+    "back": "Back",
+
+    "preferencesLegend": "Accessibility preferences",
+    "displayedOnMap": "Displayed on the map",
+    "elevators": "Elevator access",
+    "toilets": "Public toilets",
+    "accessibleParking": "Accessible parking",
+
+    "themeTitle": "Theme",
+    "themeSystem": "Automatic",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+
+    "loading": "Registering...",
+    "success": "Registration successful!"
+  },
+
+  "nav": {
+    "home": "Home",
+    "login": "Login",
+    "preferences": "Preferences"
+  },
+
+  "errors": {
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordsMismatch": "Passwords do not match",
+    "registrationFailed": "Registration failed",
+    "unexpected": "An unexpected error occurred"
+  },
+  
+  "header": {
+    "help": "Help",
+    "login": "Login",
+    "logout": "Logout",
+    "signup": "Sign up",
+    "home": "Home",
+    "brand": "AccessNow"
+  },
+
+  "home": {
+    "eyebrow": "AccessNow+",
+    "title": "Navigation that adapts to your life.",
+    "lede": "Plan routes that get you to your destination safely and comfortably — with step-free paths and clear guidance for every mobility need.",
+    "wcag": "Built to meet WCAG AA standards",
+
+    "form": {
+      "ariaLabel": "Find route",
+      "startLabel": "Start",
+      "startPlaceholder": "Enter starting point",
+      "startHelp": "Enter an address.",
+      "destinationLabel": "Destination",
+      "destinationPlaceholder": "Enter destination",
+      "submit": "Find route",
+      "loginTrips": "Log in to view recent trips"
+    },
+
+    "hero": {
+      "imageAlt": "People using a navigation app.",
+      "imageFallbackAlt": "Placeholder graphic.",
+      "figcaption": "For people with different mobility needs."
+    },
+
+    "highlights": {
+      "ariaLabel": "Highlights",
+
+      "easy": {
+        "eyebrow": "Made simple",
+        "title": "Navigation that’s easy to understand",
+        "text": "Large text, strong contrast, and a calm design help you keep your route in view at all times — on the go, in sunlight, or whenever clarity matters most."
+      },
+
+      "flex": {
+        "eyebrow": "As flexible as your day",
+        "title": "Step-free when it matters",
+        "text": "Choose routes with fewer barriers and more comfort — ideal with strollers, during fatigue, or with mobility needs. Discover elevators, accessible parking, and public restrooms along the way — including live elevator status where available."
+      },
+
+      "steps": {
+        "eyebrow": "In three simple steps",
+        "title": "How it works",
+        "items": [
+          "Enter your start and destination",
+          "We find a route with fewer barriers",
+          "Discover helpful places along your way"
+        ]
+      }
+    }
+  },
+
+  "registration": {
+    "title": "Registration",
+    "stepLabel": "Step {{step}} of {{total}}",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "continue": "Continue",
+    "createAccount": "Create account",
+    "back": "Back",
+
+    "preferencesLegend": "Accessibility preferences",
+    "displayedOnMap": "Displayed on the map",
+    "elevators": "Elevator access",
+    "toilets": "Public toilets",
+    "accessibleParking": "Accessible parking",
+
+    "themeTitle": "Theme",
+    "themeSystem": "Automatic",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+
+    "loading": "Registering...",
+    "success": "Registration successful!"
+  },
+
+  "nav": {
+    "home": "Home",
+    "login": "Login",
+    "preferences": "Preferences"
+  },
+
+  "errors": {
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "passwordMin": "Password must be at least 8 characters",
+    "passwordsMismatch": "Passwords do not match",
+    "registrationFailed": "Registration failed",
+    "unexpected": "An unexpected error occurred"
+  },
+
+  "login": {
+    "eyebrow": "AccessNow+",
+    "title": "Sign in",
+    "lede": "Clear typography, strong contrast, and keyboard-first flows help everyone sign in quickly.",
+
+    "highlights": {
+      "contrast": "WCAG AA color contrast",
+      "focus": "Visible focus states",
+      "motion": "Reduced motion friendly"
+    },
+
+    "cardEyebrow": "Welcome back",
+    "cardTitle": "Access your account",
+
+    "emailLabel": "Email address",
+    "passwordLabel": "Password",
+    "emailPlaceholder": "you@example.com",
+    "passwordPlaceholder": "Enter your password",
+
+    "actions": {
+      "continue": "Continue",
+      "createAccount": "Create account",
+      "signingIn": "Signing in..."
+    },
+
+    "links": {
+      "backToHome": "Back to home",
+      "needAccount": "Need an account?"
+    },
+
+    "status": {
+      "signingYouIn": "Signing you in...",
+      "signedInSuccessfully": "Signed in successfully."
+    },
+
+    "errors": {
+      "invalidCredentials": "Login failed. Please check your credentials.",
+      "network": "Network error. Please try again."
+    },
+
+    "currentRoute": "Current route: {{path}}",
+
+    "aria": {
+      "welcomeMessage": "Welcome message",
+      "highlights": "Highlights",
+      "signInForm": "Sign-in form",
+      "helpfulLinks": "Helpful links"
+    }
+    },
+    "map": {
+    "start": "Start",
+    "destination": "Destination",
+    "loading": "Calculating route. This may take a few seconds.",
+    "errorRoute": "We couldn’t calculate the route. Please check the addresses and try again.",
+
+    "routeSummary": "Route found. Distance {{distance}} kilometers. {{count}} accessible places along the route.",
+
+    "filters": {
+      "groupLabel": "Map filters",
+      "toilets": "Toilets",
+      "elevators": "Elevators",
+      "parking": "Accessible parking",
+      "shownWithin": "Shown within {{distance}} m along your route.",
+      "adjustDistance": "Adjust distance",
+      "distance": "Distance",
+      "meters": "Meters",
+      "reset": "Reset to {{value}} m",
+      "current": "Current: {{value}} m",
+      "distanceFromRoute": "Distance from route"
+    },
+
+    "popup": {
+      "parking": "Accessible Parking",
+      "elevator": "Elevator",
+      "toilet": "Public Toilet",
+      "type": "Type",
+      "location": "Location",
+      "postalCode": "Postal Code",
+      "district": "District",
+      "hours": "Hours",
+      "spaces": "Spaces",
+      "levels": "Levels",
+      "wheelchair": "Wheelchair Accessible",
+      "bicycle": "Bicycle Access",
+      "operator": "Operator",
+      "fee": "Fee",
+      "accessible": "Accessible",
+      "changingTable": "Changing Table",
+      "yes": "Yes ✓",
+      "no": "No"
+    }
   }
-}
+ }
