@@ -173,16 +173,25 @@ export default function Registration() {
               />
             </div>
 
-            <button
-              type="button"
-              aria-label={t("registration.ariaContinue", { next: step + 1, total: 2 })}
-              onClick={() => {
-                if (!validateStep1()) return;
-                setStep(2);
-              }}
-            >
-              {t("registration.continue")}
-            </button>
+            <div className="form-actions">
+              <button
+                type="button"
+                aria-label={t("registration.ariaContinue", { next: step + 1, total: 2 })}
+                onClick={() => {
+                  if (!validateStep1()) return;
+                  setStep(2);
+                }}
+              >
+                {t("registration.continue")}
+              </button>
+              <Link
+                to="/"
+                className="secondary-btn"
+                aria-label={t("header.home")}
+              >
+                {t("header.home")}
+              </Link>
+            </div>
           </>
         )}
 
@@ -282,12 +291,6 @@ export default function Registration() {
 
       {status.state === "error" && <p className="error-message">{status.message}</p>}
       {status.state === "success" && <p className="success-message">{status.message}</p>}
-
-      <Link to="/">{t("nav.home")}</Link>
-      <br />
-      <Link to="/login">{t("nav.login")}</Link>
-      <br />
-      <Link to="/preferences">{t("nav.preferences")}</Link>
     </>
   );
 }

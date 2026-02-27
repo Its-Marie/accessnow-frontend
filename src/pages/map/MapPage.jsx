@@ -283,96 +283,107 @@ export default function MapPage() {
       </div>
 
       <div className="mapFilters" role="group" aria-label={t("map.filters.groupLabel")}>
-        <label className="filterItem">
-          <input
-            type="checkbox"
-            checked={filters.show_toilets}
-            onChange={() => toggleFilter('show_toilets')}
-          />
-          <span className="markerDot markerDot--toilet" aria-hidden="true" />
-          <span className="filterIcon" aria-hidden="true">🚻</span>
-          <span className="filterText">
-            <span className="filterTitle">{t("map.filters.toilets")}</span>
-          </span>
-        </label>
+        <details className="filtersSheet">
+          <summary className="filtersSheetSummary">
+            {t("map.filters.groupLabel")}
+            <span className="filtersSheetMeta" aria-hidden="true">
+              {radiusMeters} m
+              </span>  
+          </summary>
 
-        <label className="filterItem">
-          <input
-            type="checkbox"
-            checked={filters.show_elevators}
-            onChange={() => toggleFilter("show_elevators")}
-          />
-          <span className="markerDot markerDot--elevator" aria-hidden="true" />
-          <span className="filterIcon" aria-hidden="true">🛗</span>
-          <span className="filterText">
-            <span className="filterTitle">{t("map.filters.elevators")}</span>
-          </span>
-          <span className="filterBadge filterBadge--elevator" aria-hidden="true"></span>
-        </label>
-
-        <label className="filterItem">
-          <input
-            type="checkbox"
-            checked={filters.show_parking}
-            onChange={() => toggleFilter("show_parking")}
-          />
-          <span className="markerDot markerDot--parking" aria-hidden="true" />
-          <span className="filterIcon" aria-hidden="true">♿</span>
-          <span className="filterText">
-            <span className="filterTitle">{t("map.filters.parking")}</span>
-          </span>
-          <span className="filterBadge filterBadge--parking" aria-hidden="true"></span>
-        </label>
-
-        <p className="filtersHint" id="radius-hint">
-          {t("map.filters.shownWithin", { distance: radiusMeters })}
-        </p>
-
-        <details className="filtersExpander">
-          <summary class="filtersExpanderSummary">{t("map.filters.adjustDistance")}</summary>
-
-          <div className="radiusControls" role="group" aria-label={t("map.filters.distanceFromRoute")}>
-            <label className="radiusRow">
-              <span className="radiusLabel">{t("map.filters.distance")}</span>
+          <div className="filtersSheetBody">
+            <label className="filterItem">
               <input
-                type="range"
-                min={100}
-                max={1200}
-                step={50}
-                value={radiusMeters}
-                onChange={(e) => setRadiusMeters(Number(e.target.value))}
-                aria-describedby="radius-hint"
+                type="checkbox"
+                checked={filters.show_toilets}
+                onChange={() => toggleFilter('show_toilets')}
               />
-            </label>
-
-            <label className="radiusRow">
-              <span className="radiusLabel">{t("map.filters.meters")}</span>
-              <input
-                className="radiusNumber"
-                type="number"
-                min={100}
-                max={1200}
-                step={50}
-                value={radiusMeters}
-                onChange={(e) => setRadiusMeters(Number(e.target.value))}
-                aria-describedby="radius-hint"
-                inputMode="numeric"
-              />
-            </label>
-
-            <div className="radiusActions">
-              <button
-                type="button"
-                className="radiusReset"
-                onClick={() => setRadiusMeters(400)}
-              >
-                {t("map.filters.reset", { value: 400 })}
-              </button>
-
-              <span className="radiusCurrent" aria-live="polite">
-                {t("map.filters.current", { value: radiusMeters })}
+              <span className="markerDot markerDot--toilet" aria-hidden="true" />
+              <span className="filterIcon" aria-hidden="true">🚻</span>
+              <span className="filterText">
+                <span className="filterTitle">{t("map.filters.toilets")}</span>
               </span>
-            </div>
+            </label>
+
+            <label className="filterItem">
+              <input
+                type="checkbox"
+                checked={filters.show_elevators}
+                onChange={() => toggleFilter("show_elevators")}
+              />
+              <span className="markerDot markerDot--elevator" aria-hidden="true" />
+              <span className="filterIcon" aria-hidden="true">🛗</span>
+              <span className="filterText">
+                <span className="filterTitle">{t("map.filters.elevators")}</span>
+              </span>
+              <span className="filterBadge filterBadge--elevator" aria-hidden="true"></span>
+            </label>
+
+            <label className="filterItem">
+              <input
+                type="checkbox"
+                checked={filters.show_parking}
+                onChange={() => toggleFilter("show_parking")}
+              />
+              <span className="markerDot markerDot--parking" aria-hidden="true" />
+              <span className="filterIcon" aria-hidden="true">♿</span>
+              <span className="filterText">
+                <span className="filterTitle">{t("map.filters.parking")}</span>
+              </span>
+              <span className="filterBadge filterBadge--parking" aria-hidden="true"></span>
+            </label>
+
+            <p className="filtersHint" id="radius-hint">
+              {t("map.filters.shownWithin", { distance: radiusMeters })}
+            </p>
+
+            <details className="filtersExpander">
+              <summary className="filtersExpanderSummary">{t("map.filters.adjustDistance")}</summary>
+
+              <div className="radiusControls" role="group" aria-label={t("map.filters.distanceFromRoute")}>
+                <label className="radiusRow">
+                  <span className="radiusLabel">{t("map.filters.distance")}</span>
+                  <input
+                    type="range"
+                    min={100}
+                    max={1200}
+                    step={50}
+                    value={radiusMeters}
+                    onChange={(e) => setRadiusMeters(Number(e.target.value))}
+                    aria-describedby="radius-hint"
+                  />
+                </label>
+
+                <label className="radiusRow">
+                  <span className="radiusLabel">{t("map.filters.meters")}</span>
+                  <input
+                    className="radiusNumber"
+                    type="number"
+                    min={100}
+                    max={1200}
+                    step={50}
+                    value={radiusMeters}
+                    onChange={(e) => setRadiusMeters(Number(e.target.value))}
+                    aria-describedby="radius-hint"
+                    inputMode="numeric"
+                  />
+                </label>
+
+                <div className="radiusActions">
+                  <button
+                    type="button"
+                    className="radiusReset"
+                    onClick={() => setRadiusMeters(400)}
+                  >
+                    {t("map.filters.reset", { value: 400 })}
+                  </button>
+
+                  <span className="radiusCurrent" aria-live="polite">
+                    {t("map.filters.current", { value: radiusMeters })}
+                  </span>
+                </div>
+              </div>
+            </details>
           </div>
         </details>
       </div>

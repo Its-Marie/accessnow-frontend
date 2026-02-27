@@ -35,8 +35,16 @@
 .brand-link {
   color: inherit;
   text-decoration: none;
+  padding: 10px 12px;        
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.2s ease, opacity 0.2s ease;
 }
 
+.brand-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
 /* right side layout */
 .nav-right {
   display: flex;

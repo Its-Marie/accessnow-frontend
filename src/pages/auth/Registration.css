@@ -53,6 +53,11 @@ p {
   gap: 1rem;
 }
 
+.registration-form button,
+.registration-form .secondary-btn {
+  width: 100%;
+}
+
 .form-group label {
   display: block;
   font-weight: 700;
@@ -118,6 +123,14 @@ fieldset > div p {
   color: var(--ink);
 }
 
+/* Actions wrapper for Continue + Home (Link) */
+.registration-form .form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 0.25rem;
+}
+
 .registration-form button {
   border-radius: 14px;
   border: 1.5px solid var(--ink);
@@ -131,22 +144,9 @@ fieldset > div p {
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.24);
 }
 
-.registration-form button + button {
-  background: transparent;
-  color: var(--ink);
-  border-color: var(--border);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
-}
-
 .registration-form button:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.3);
-}
-
-.registration-form button + button:hover {
-  border-color: var(--accent);
-  color: var(--accent-strong);
-  background: rgba(15, 118, 110, 0.08);
 }
 
 .registration-form button:disabled {
@@ -158,6 +158,47 @@ fieldset > div p {
 
 .registration-form button:focus-visible,
 a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.16);
+}
+
+/* Link styled as the secondary button under Continue */
+.registration-form .secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+
+  font-weight: 700;
+  font-size: 1rem;
+
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--border);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+
+  text-decoration: none;
+  transition: transform 0.12s ease,
+              box-shadow 0.12s ease,
+              background-color 0.12s ease,
+              border-color 0.12s ease,
+              color 0.12s ease;
+}
+
+.registration-form .secondary-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+  background: rgba(15, 118, 110, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.3);
+  text-decoration: none;
+}
+
+.registration-form .secondary-btn:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
   box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.16);

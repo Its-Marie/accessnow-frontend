@@ -33,7 +33,11 @@ export default function Header() {
     <header className="an-header">
       <div className="an-container">
         <h1 className="brand">
-          <Link to="/" className="brand-link">
+          <Link 
+            to="/" 
+            className="brand-link"
+            aria-label={t("header.home")}
+          >
             {t("header.brand")}
           </Link>
         </h1>
@@ -42,7 +46,11 @@ export default function Header() {
           <nav className="nav-links" aria-label="Primary">
             <Link to="/help">{t("header.help")}</Link>
             {isLoggedIn ? (
-              <button onClick={logout} className="nav-link-button">
+              <button 
+                type="button"
+                onClick={logout} 
+                className="nav-link-button"
+                >
                 {t("header.logout")}
               </button>
             ) : (

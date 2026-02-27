@@ -40,9 +40,9 @@
   padding: 14px;
   border-radius: 14px;
 
-  border: 2px solid #0f172a;
+  border: 1px solid #e2e8f0;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
 
   z-index: 1000;
 
@@ -53,7 +53,6 @@
   min-width: 220px;
 }
 
-/* each filter row as big tap target */
 .mapFilters label {
   display: flex;
   align-items: center;
@@ -68,8 +67,8 @@
   min-height: 52px; /* >= 44px for touch targets */
 
   font-weight: 800;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  background: #ffffff;
 }
 
 /* keyboard focus visibility */
@@ -83,6 +82,10 @@
   height: 22px;
   cursor: pointer;
   flex: 0 0 auto;
+}
+
+.mapFilters label:hover {
+  background: #ffffff;
 }
 
 .filtersHint {
@@ -235,8 +238,8 @@
   padding: 14px 16px;
   border-radius: 14px;
 
-  border: 2px solid #0f172a;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
 
   z-index: 1000;
 
@@ -288,9 +291,9 @@
   font-size: 22px !important;
 
   border-radius: 12px !important;
-  border: 2px solid #0f172a !important;
+  border: 1px solid #e2e8f0 !important;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18) !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12) !important;
 }
 
 .leaflet-control-zoom a + a {
@@ -300,4 +303,66 @@
 .leaflet-control-zoom a:focus {
   outline: 3px solid #2563eb !important;
   outline-offset: 2px !important;
+}
+
+/* ---------- Responsive: Map filters become a bottom sheet on mobile ---------- */
+@media (max-width: 520px) {
+
+  .mapFilters {
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 12px;
+
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    min-width: 0;
+  }
+
+  .filtersSheet {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.14);
+    overflow: hidden;
+  }
+
+  /* CLOSED STATE → nur kleine Leiste sichtbar */
+  .filtersSheet:not([open]) .filtersSheetBody {
+    display: none;
+  }
+
+  .filtersSheetSummary {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 800;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .filtersSheetSummary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* OPEN STATE → scrollbar im panel */
+  .filtersSheet[open] .filtersSheetBody {
+    max-height: 38vh;
+    overflow: auto;
+    padding: 12px 14px 14px;
+  }
+
+  .filterItem {
+    min-height: 44px;
+    padding: 8px 10px;
+  }
+
+  .leaflet-control-zoom {
+    margin-bottom: 120px;
+  }
+
+  .route-info {
+    top: 76px;
+  }
 }

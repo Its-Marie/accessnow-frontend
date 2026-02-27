@@ -135,10 +135,6 @@ export default function Login() {
           </Link>
         </div>
 
-        <p className="route-hint" aria-live="polite">
-          {t("login.currentRoute", { path: location.pathname })}
-        </p>
-
         <div className={`login-status ${status.state}`} role="status" aria-live="polite">
           {status.message}
         </div>
