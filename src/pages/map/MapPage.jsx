@@ -5,6 +5,7 @@ import L from "leaflet";
 import GeoJsonMap from "../../components/GeoJsonMap";
 import { useTranslation } from "react-i18next";
 import "./MapPage.css";
+import { API_BASE } from "../../config/api";
 
 function createPopupContent(feature, t) {
   const props = feature.properties;
@@ -243,7 +244,7 @@ export default function MapPage() {
     setError(null);
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/api/plan-route", {
+      const res = await fetch(`${API_BASE}/api/plan-route`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
