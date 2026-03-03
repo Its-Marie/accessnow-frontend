@@ -40,7 +40,7 @@
   padding: 14px;
   border-radius: 14px;
 
-  border: 1px solid #e2e8f0;
+  border: 2px solid #1e3a5f;
 
   box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
 
@@ -84,9 +84,6 @@
   flex: 0 0 auto;
 }
 
-.mapFilters label:hover {
-  background: #ffffff;
-}
 
 .filtersHint {
   margin: 4px 4px 0;
@@ -291,7 +288,7 @@
   font-size: 22px !important;
 
   border-radius: 12px !important;
-  border: 1px solid #e2e8f0 !important;
+  border: 2px solid #1e3a5f !important;
 
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12) !important;
 }
@@ -316,7 +313,7 @@
 
     padding: 0;
     background: transparent;
-    border: 2px solid #1e3a5f;
+    border: none;
     box-shadow: none;
     min-width: 0;
   }
@@ -329,24 +326,41 @@
     overflow: hidden;
   }
 
-  /* CLOSED STATE → nur kleine Leiste sichtbar */
   .filtersSheet:not([open]) .filtersSheetBody {
     display: none;
   }
 
   .filtersSheetSummary {
-    padding: 10px 14px;
+    padding: 12px 16px;
     font-size: 14px;
     font-weight: 800;
     list-style: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+
 
   .filtersSheetSummary::-webkit-details-marker {
     display: none;
   }
 
-  /* OPEN STATE → scrollbar im panel */
+   .filtersSheetSummary::after {
+    content: "▸";
+    font-size: 16px;
+    color: #1e3a5f;
+    font-weight: 900;
+  }
+
+  .filtersSheet[open] .filtersSheetSummary::after {
+    content: "▾";
+  }
+
+  .filtersSheet:not([open]) .filtersSheetBody {
+    display: none;
+  }
+
   .filtersSheet[open] .filtersSheetBody {
     max-height: 38vh;
     overflow: auto;
@@ -357,13 +371,16 @@
     min-height: 44px;
     padding: 8px 10px;
   }
+  
 
   .leaflet-control-zoom {
-    margin-bottom: 120px;
+    margin-bottom: 70px !important;
     border: 2px solid #1e3a5f;
   }
 
   .route-info {
-    top: 76px;
+    top: 130px;
+    bottom: auto;
+    left: 12px;
   }
 }
