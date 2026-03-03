@@ -147,7 +147,10 @@
   background: #e8f2f9;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 520px) {
+  .landing{
+    padding: 72px 16px 72px;
+  }
   .visual-frame {
     max-width: 100%;
   }
