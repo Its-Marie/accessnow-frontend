@@ -284,7 +284,7 @@ export default function MapPage() {
       </div>
 
       <div className="mapFilters" role="group" aria-label={t("map.filters.groupLabel")}>
-        <details className="filtersSheet">
+        <details className="filtersSheet" open>
           <summary className="filtersSheetSummary">
             {t("map.filters.groupLabel")}
             <span className="filtersSheetMeta" aria-hidden="true">
