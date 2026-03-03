@@ -227,21 +227,22 @@
    MOBILE RESPONSIVE HEADER
    ===================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .an-header .an-container {
     padding: 16px 20px;
   }
 
   .brand {
-    font-size: 24px;
+    font-size: 20px;
+    white-space: nowrap;
   }
 
   .nav-right {
-    gap: 10px;
+    gap: 8px;
   }
 
   .nav-links {
-    gap: 12px;
+    gap: none;
   }
 
   .nav-links a {
@@ -255,17 +256,16 @@
   }
 
   .nav-cta {
-    width: auto;
-    height: 44px;
-    padding: 0 16px;
-    font-size: 16px;
-    margin-left: 0;
+    padding: 0 12px;
+    font-size: 14px;
+    height: 40px;
   }
 
   .lang-toggle__btn {
-    min-width: 40px;
-    min-height: 40px;
-    font-size: 13px;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0 8px;
+    font-size: 12px;
   }
 }
 
