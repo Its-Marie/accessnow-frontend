@@ -151,7 +151,7 @@
     "map": {
     "start": "Start",
     "destination": "Ziel",
-    "loading": "Route wird berechnet. Das kann einige Sekunden dauern.",
+    "loading": "Route wird berechnet. Dies kann einige Minuten dauern. Danke für die Geduld.",
     "errorRoute": "Die Route konnte nicht berechnet werden. Bitte überprüfe die Adressen und versuche es erneut.",
 
     "routeSummary": "Route gefunden. Entfernung {{distance}} Kilometer. {{count}} barrierefreie Orte entlang der Strecke.",
