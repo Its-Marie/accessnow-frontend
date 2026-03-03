@@ -1,8 +1,9 @@
 .mapLayout {
   position: fixed;
   inset: 0;
+  top: 70px;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -282,15 +283,17 @@
 }
 
 .leaflet-control-zoom a {
-  width: 44px !important;
-  height: 44px !important;
-  line-height: 44px !important;
-  font-size: 22px !important;
 
-  border-radius: 12px !important;
-  border: 2px solid #1e3a5f !important;
-
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12) !important;
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    font-size: 22px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    border: 2px solid #1e3a5f !important;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12) !important;
 }
 
 .leaflet-control-zoom a + a {
@@ -305,6 +308,10 @@
 /* ---------- Responsive: Map filters become a bottom sheet on mobile ---------- */
 @media (max-width: 520px) {
 
+  .mapLayout {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
   .mapFilters {
     left: 12px;
     right: 12px;
@@ -374,6 +381,7 @@
   
 
   .leaflet-control-zoom {
+    margin-top: 10px !important;
     margin-bottom: 70px !important;
     border: 2px solid #1e3a5f;
   }
