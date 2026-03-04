@@ -1,16 +1,57 @@
-# React + Vite
+💙 About AccessNow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This frontend for the AccessNow+ Mobility App. Goal: accessible navigation, personalized needs, and fast map-based orientation.
 
-Currently, two official plugins are available:
+You are helping build a more inclusive world. 🌍💙
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Frontend for the AccessNow+ Mobility App. Goal: accessible navigation, personalized needs, and fast map-based orientation.
 
-## React Compiler
+**Features**
+- React SPA with Vite
+- Map view via Leaflet
+- Route planning with POIs
+- Registration, login, favorites
+- i18n via i18next
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+**Tech Stack**
+- React + Vite
+- React Router
+- Leaflet + React-Leaflet
+- i18next
 
-## Expanding the ESLint configuration
+**Prerequisites**
+- Node.js (LTS recommended)
+- npm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Setup**
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Environment variables
+
+Create a `.env` in the project root (example):
+
+```bash
+VITE_API_BASE=http://127.0.0.1:5000
+```
+
+3. Start dev server
+
+```bash
+npm run dev
+```
+
+**Scripts**
+- `npm run dev` starts the Vite dev server
+- `npm run build` creates the production build
+- `npm run preview` previews the build locally
+- `npm run lint` runs ESLint
+
+**Project Structure**
+- `src/pages/` pages (auth, home, map, personalization)
+- `src/components/` UI components
+- `src/config/api.js` API base URL
+- `src/i18n/` translations
