@@ -32,15 +32,13 @@ export default function Header() {
   return (
     <header className="an-header">
       <div className="an-container">
-        <h1 className="brand">
-          <Link 
-            to="/" 
-            className="brand-link"
-            aria-label={t("header.home")}
-          >
-            {t("header.brand")}
-          </Link>
-        </h1>
+        <Link
+          to="/"
+          className="brand-link"
+          aria-label={t("header.home")}
+        >
+          <span className="brand">{t("header.brand")}</span>
+        </Link>
 
         <div className="nav-right">
           <nav className="nav-links" aria-label="Primary">
