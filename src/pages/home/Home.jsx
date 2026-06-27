@@ -28,7 +28,7 @@ export default function Home() {
       <main id="main-content" className="landing" aria-labelledby="landing-title">
         <section className="landing-hero">
           <div className="hero-copy">
-            <p className="eyebrow">{t("home.eyebrow")}</p>
+            <p className="eyebrow" aria-label="AccessNow Plus">{t("home.eyebrow")}</p>
             <h1 id="landing-title">{t("home.title")}</h1>
             <p className="lede">{t("home.lede")}</p>
 
