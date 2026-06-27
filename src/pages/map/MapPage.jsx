@@ -273,7 +273,7 @@ export default function MapPage() {
   }
 
   return (
-    <main className="mapLayout">
+    <main id="main-content" className="mapLayout">
       <div className="mapTopBar">
         <div>
           <strong>{t("map.start")}:</strong> {start || "-"}

@@ -208,19 +208,31 @@
 
 .skip-link {
   position: absolute;
-  left: -999px;
-  top: 12px;
-  background: #ffffff;
-  color: #262556;
-  padding: 10px 14px;
-  border-radius: 10px;
-  z-index: 2000;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
   text-decoration: none;
-  font-weight: 700;
 }
 
-.skip-link:focus {
-  left: 12px;
+.skip-link:focus-visible {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  z-index: 9999;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  outline: 3px solid #f8fafc;
+  outline-offset: 2px;
 }
 
 /* =====================================================

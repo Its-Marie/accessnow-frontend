@@ -4,8 +4,6 @@ This frontend for the AccessNow+ Mobility App. Goal: accessible navigation, pers
 
 You are helping build a more inclusive world. 🌍💙
 
-Frontend for the AccessNow+ Mobility App. Goal: accessible navigation, personalized needs, and fast map-based orientation.
-
 **Features**
 - React SPA with Vite
 - Map view via Leaflet
@@ -29,7 +27,6 @@ Frontend for the AccessNow+ Mobility App. Goal: accessible navigation, personali
 ```bash
 npm install
 ```
-
 2. Environment variables
 
 Create a `.env` in the project root (example):

@@ -57,7 +57,7 @@ export default function Login() {
   }
 
   return (
-    <main className="login-page" aria-labelledby="login-title">
+    <main id="main-content" className="login-page" aria-labelledby="login-title">
       <section className="login-hero" aria-label={t("login.aria.welcomeMessage")}>
         <p className="eyebrow">{t("login.eyebrow")}</p>
         <h1 id="login-title">{t("login.title")}</h1>

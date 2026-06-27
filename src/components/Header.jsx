@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { LanguageSwitcher } from "./LanguageSwitcher"
 import "./Header.css"
@@ -30,6 +30,8 @@ export default function Header() {
   }
 
   return (
+    <>
+    <a href="#main-content" className="skip-link">{t("header.skipLink")}</a>
     <header className="an-header">
       <div className="an-container">
         <Link
@@ -66,5 +68,6 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   )
 }
