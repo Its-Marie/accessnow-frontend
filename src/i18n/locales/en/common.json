@@ -7,6 +7,11 @@
     "home": "AccessNow – Home",
     "skipLink": "Skip to main content",
     "languageGroup": "Choose language",
+    "navLabel": "Main navigation",
+    "cta": "Get started",
+    "ctaAriaLabel": "Get started with AccessNow",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
     "brand": "AccessNow"
   },
 

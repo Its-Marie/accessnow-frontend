@@ -1,215 +1,11 @@
 /* =====================================================
-   BASE HEADER STYLES
-   ===================================================== */
-
-.an-header {
-  background: #262556;
-  color: white;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.an-header .an-container {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  box-sizing: border-box;
-}
-
-.brand {
-  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  font-size: 32px;
-  font-weight: 400;
-  letter-spacing: 0.32px;
-  margin: 0;
-  color: white;
-}
-
-.brand-link {
-  color: inherit;
-  text-decoration: none;
-  padding: 10px 12px;        
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  transition: background 0.2s ease, opacity 0.2s ease;
-}
-
-.brand-link:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
-/* right side layout */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-/* =====================================================
-   ACCESSIBILITY: VISIBLE FOCUS (WCAG 2.1)
-   ===================================================== */
-
-.an-header a:focus-visible,
-.an-header button:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
-  border-radius: 10px;
-}
-
-/* =====================================================
-   NAV LINKS
-   ===================================================== */
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-family: "Outfit", system-ui, sans-serif;
-  font-size: 18px;
-  opacity: 0.95;
-
-  /* WCAG touch/click target size */
-  padding: 10px 12px;
-  border-radius: 10px;
-
-  transition: background 0.2s ease, opacity 0.2s ease;
-}
-
-.nav-links a:hover {
-  background: rgba(255, 255, 255, 0.12);
-  opacity: 1;
-}
-
-/* =====================================================
-   LOGOUT BUTTON
-   ===================================================== */
-
-.nav-link-button {
-  /* Reset browser defaults */
-  appearance: none;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-
-  /* Match nav link style exaktly */
-  color: white;
-  font-family: "Outfit", system-ui, sans-serif;
-  font-size: 18px;
-  opacity: 0.95;
-
-  padding: 10px 12px;
-  border-radius: 10px;
-
-  transition: background 0.2s ease, opacity 0.2s ease;
-}
-
-.nav-link-button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  opacity: 1;
-}
-
-.nav-link-button:active {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* =====================================================
-   SIGN UP BUTTON
-   ===================================================== */
-
-.nav-cta {
-  background: #ECEBF2;
-  color: #262556;
-  border-radius: 70px;
-  padding: 0;
-  width: 126px;
-  height: 63px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-family: "Outfit", system-ui, sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.nav-cta:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-}
-
-.nav-cta:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-/* =====================================================
-   LANGUAGE TOGGLE
-   ===================================================== */
-
-.lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
-  padding: 4px;
-}
-
-.lang-toggle__btn {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.92);
-
-  font-family: "Outfit", system-ui, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-
-  /* WCAG minimum touch target */
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0 12px;
-
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.lang-toggle__btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.lang-toggle__btn.is-active {
-  background: #ECEBF2;
-  color: #262556;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-}
-
-/* =====================================================
-   SKIP LINK — accessibility best practice
+   SKIP LINK
    ===================================================== */
 
 .skip-link {
   position: absolute;
   left: -9999px;
-  top: auto;
+  top: 8px;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -218,84 +14,239 @@
 
 .skip-link:focus-visible {
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  left: 8px;
+  top: 8px;
   width: auto;
   height: auto;
   overflow: visible;
+  background: #4c9d7e;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
   z-index: 9999;
-  padding: 12px 20px;
-  border-radius: 10px;
-  background: #0f172a;
-  color: #f8fafc;
-  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  outline: none;
+}
+
+/* =====================================================
+   HEADER WRAPPER
+   ===================================================== */
+
+.an-header {
+  background: #1a1840;
+  padding: 0 40px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =====================================================
+   LOGO
+   ===================================================== */
+
+.an-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.an-logo__icon {
+  width: 30px;
+  height: 30px;
+  background: #4c9d7e;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.an-logo__text {
   font-size: 16px;
-  font-weight: 700;
-  outline: 3px solid #f8fafc;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.an-logo:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* =====================================================
+   NAV LINKS
+   ===================================================== */
+
+.an-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.an-nav__link {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 400;
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  /* WCAG touch target */
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
+  transition: color 0.15s ease;
+}
+
+.an-nav__link:hover {
+  color: #ffffff;
+}
+
+.an-nav__link[aria-current="page"] {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.an-nav__link:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* =====================================================
+   RIGHT SIDE
+   ===================================================== */
+
+.an-header__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   LANGUAGE TOGGLE
+   ===================================================== */
+
+.lang-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 3px;
+  display: flex;
+  gap: 2px;
+  border: none;
+}
+
+.lang-toggle__btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 4px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  /* WCAG touch target */
+  min-height: 44px;
+  min-width: 44px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.lang-toggle__btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.lang-toggle__btn.is-active {
+  color: #1a1840;
+  background: #ffffff;
+}
+
+.lang-toggle__btn:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+/* =====================================================
+   CTA BUTTON
+   ===================================================== */
+
+.an-cta {
+  background: #4c9d7e;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 44px;
+  transition: background 0.15s ease;
+}
+
+.an-cta:hover {
+  background: #3d8a6c;
+}
+
+.an-cta:focus-visible {
+  outline: 3px solid #4c9d7e;
   outline-offset: 2px;
 }
 
 /* =====================================================
-   MOBILE RESPONSIVE HEADER
+   HAMBURGER (mobile only)
    ===================================================== */
 
-@media (max-width: 480px) {
-  .an-header .an-container {
-    padding: 16px 20px;
-  }
-
-  .brand {
-    font-size: 20px;
-    white-space: nowrap;
-  }
-
-  .nav-right {
-    gap: 8px;
-  }
-
-  .nav-links {
-    gap: none;
-  }
-
-  .nav-links a {
-    font-size: 16px;
-    padding: 8px 10px;
-  }
-
-  .nav-link-button {
-    font-size: 16px;
-    padding: 8px 10px;
-  }
-
-  .nav-cta {
-    padding: 0 12px;
-    font-size: 14px;
-    height: 40px;
-  }
-
-  .lang-toggle__btn {
-    min-width: 36px;
-    min-height: 36px;
-    padding: 0 8px;
-    font-size: 12px;
-  }
+.an-hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
-@media (max-width: 480px) {
-  .nav-links {
+.an-hamburger:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .an-header {
+    padding: 0 20px;
+  }
+
+  .an-nav {
     display: none;
   }
 
-  .nav-right {
-    gap: 8px;
+  .an-hamburger {
+    display: flex;
   }
-
-  .nav-cta {
-    padding: 0 12px;
-    font-size: 14px;
-  }
-}
-
-.landing {
-  padding-top: 120px; /* adjust if header height changes */
 }

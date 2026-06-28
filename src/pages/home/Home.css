@@ -1,7 +1,7 @@
 .landing {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 100px 22px 72px;
+  padding: 40px 22px 72px;
 }
 
 .landing-hero {
@@ -373,7 +373,7 @@
 
 @media (max-width: 520px) {
   .landing {
-    padding: 80px 16px 72px;
+    padding: 24px 16px 72px;
     overflow-x: hidden;
   }
 
