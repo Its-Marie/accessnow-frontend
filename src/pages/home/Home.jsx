@@ -98,8 +98,8 @@ export default function Home() {
   return (
     <>
       <main id="main-content" className="landing" aria-labelledby="landing-title">
-        <section className="landing-hero">
-          <div className="hero-copy">
+        <section className="hero">
+          <div className="hero-left">
             <p className="eyebrow" aria-label="AccessNow Plus">{t("home.eyebrow")}</p>
             <h1 id="landing-title">{t("home.title")}</h1>
             <p className="lede">{t("home.lede")}</p>
@@ -210,20 +210,14 @@ export default function Home() {
             <div className="hero-footnote">{t("home.wcag")}</div>
           </div>
 
-          <figure className="hero-visual">
-            <div className="visual-frame">
-              <img
-                className="hero-image"
-                src="/assets/hero-accessible-city.jpg.png"
-                alt={t("home.hero.imageAlt")}
-                loading="lazy"
-                onError={handleHeroImageError}
-              />
-            </div>
-            <figcaption className="visually-hidden">
-              {t("home.hero.figcaption")}
-            </figcaption>
-          </figure>
+          <div className="hero-right">
+            <img
+              src="/assets/hero-accessible-city.jpg.png"
+              alt={t("home.hero.imageAlt")}
+              loading="lazy"
+              onError={handleHeroImageError}
+            />
+          </div>
         </section>
 
         <section className="features-section" aria-labelledby="features-title">
