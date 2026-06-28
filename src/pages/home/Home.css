@@ -32,89 +32,265 @@
   max-width: 44ch;
 }
 
+/* =====================================================
+   ROUTE FORM CARD
+   ===================================================== */
+
 .route-form {
   background: #fff;
-  border: 1px solid var(--border);
+  border: 1px solid #e5e7eb;
   border-radius: 18px;
   padding: 1.25rem;
-  box-shadow: var(--shadow);
-  display: grid;
-  gap: 1rem;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.form-field label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 0.35rem;
+/* =====================================================
+   MOBILITY PROFILE CHIPS
+   ===================================================== */
+
+.chips-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.form-field input {
-  width: 100%;
-  border-radius: 14px;
-  border: 1.5px solid var(--border);
-  padding: 0.9rem 1rem;
-  font-size: 1rem;
+.form-chips-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  margin: 0;
+}
+
+.form-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
   background: #fff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  color: #555;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-.form-field input:focus-visible {
-  border-color: var(--accent-strong);
-  box-shadow: 0 0 0 3px rgba(17, 94, 89, 0.22);
-  outline: 3px solid transparent;
+.chip:focus-visible {
+  outline: 3px solid #4c9d7e;
   outline-offset: 2px;
 }
 
-.field-help {
-  margin: 0.35rem 0 0;
-  color: var(--muted);
-  font-size: 0.95rem;
+.chip--active {
+  background: #4c9d7e;
+  color: #fff;
+  border-color: transparent;
 }
 
-.form-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.75rem;
+/* =====================================================
+   INPUTS
+   ===================================================== */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.route-form button,
-.route-form .ghost-button {
-  border-radius: 14px;
-  border: 1.5px solid var(--ink);
-  padding: 0.95rem 1rem;
-  cursor: pointer;
-  font-weight: 800;
-  font-size: 1rem;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
-  text-align: center;
-  text-decoration: none;
+.input-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
 }
 
-.route-form button {
-  background-color: var(--ink);
-  color: #f8fafc;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
-}
-
-.route-form .ghost-button {
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: #fff;
-  color: var(--ink);
-  border-color: var(--border);
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0 12px;
+  min-height: 44px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.route-form button:hover,
-.route-form .ghost-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.28);
+.input-wrapper:focus-within {
+  border-color: #4c9d7e;
+  box-shadow: 0 0 0 3px rgba(76, 157, 126, 0.18);
 }
 
-.route-form button:focus-visible,
-.route-form .ghost-button:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.16);
+.input-icon {
+  flex-shrink: 0;
 }
+
+.input-icon--pin {
+  color: #4c9d7e;
+}
+
+.input-icon--flag {
+  color: #e24b4a;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  background: transparent;
+  color: inherit;
+  min-width: 0;
+}
+
+.input-wrapper input::placeholder {
+  color: #b0b7c3;
+}
+
+.gps-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0 -12px 0 0;
+  border-radius: 0 8px 8px 0;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.gps-btn:hover {
+  color: #4c9d7e;
+}
+
+.gps-btn:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   SWAP ROW
+   ===================================================== */
+
+.swap-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 16px;
+  margin: -4px 0;
+}
+
+.swap-line {
+  width: 1px;
+  height: 16px;
+  background: #e5e7eb;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+.swap-btn {
+  position: absolute;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.swap-btn:hover {
+  background: #f3f4f6;
+  color: #1a1840;
+}
+
+.swap-btn:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   PRIMARY BUTTON
+   ===================================================== */
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  background: #1a1840;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: opacity 0.15s ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+}
+
+/* =====================================================
+   SECONDARY LOGIN LINK
+   ===================================================== */
+
+.login-link {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: #4c9d7e;
+  text-decoration: none;
+  margin-top: 2px;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.login-link:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* =====================================================
+   HERO VISUALS
+   ===================================================== */
 
 .hero-footnote {
   margin-top: 1rem;
@@ -147,29 +323,9 @@
   background: #e8f2f9;
 }
 
-@media (max-width: 520px) {
-  .landing{
-    padding: 72px 16px 72px;
-  }
-  .visual-frame {
-    max-width: 100%;
-  }
-  .hero-image {
-    height: auto;
-  }
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
+/* =====================================================
+   FEATURE GRID
+   ===================================================== */
 
 .feature-grid {
   margin-top: 3rem;
@@ -220,12 +376,33 @@
   margin-bottom: 0.45rem;
 }
 
+/* =====================================================
+   UTILITIES
+   ===================================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
 @media (max-width: 520px) {
-   .landing {
-     padding: 80px 16px 72px;
-     overflow-x: hidden;
+  .landing {
+    padding: 80px 16px 72px;
+    overflow-x: hidden;
   }
-   .landing-hero {
+
+  .landing-hero {
     grid-template-columns: 1fr;
   }
 
@@ -243,8 +420,12 @@
     padding: 1rem;
   }
 
-  .form-actions {
-    grid-template-columns: 1fr;
+  .visual-frame {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    height: auto;
   }
 }
 

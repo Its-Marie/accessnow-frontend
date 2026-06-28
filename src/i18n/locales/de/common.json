@@ -17,14 +17,23 @@
     "wcag": "Entwickelt nach WCAG AA-Standard",
 
     "form": {
-      "ariaLabel": "Route finden",
-      "startLabel": "Start",
+      "ariaLabel": "Barrierefreie Route planen",
+      "mobilityProfile": "Mobilitätsprofil",
+      "mobilityGroupLabel": "Mobilitätsprofil wählen",
+      "chips": {
+        "wheelchair": "Rollstuhl",
+        "noStairs": "Keine Stufen",
+        "stroller": "Kinderwagen",
+        "slowPace": "Langsames Tempo"
+      },
+      "fromLabel": "Von",
       "startPlaceholder": "Startpunkt eingeben",
-      "startHelp": "Gib hier deine Startadresse ein.",
-      "destinationLabel": "Ziel",
+      "gpsLabel": "Aktuellen Standort verwenden",
+      "swapLabel": "Start und Ziel tauschen",
+      "toLabel": "Nach",
       "destinationPlaceholder": "Ziel eingeben",
-      "submit": "Route finden",
-      "loginTrips": "Anmelden"
+      "submit": "Barrierefreie Route finden",
+      "loginTrips": "Anmelden, um letzte Routen zu sehen"
     },
 
     "hero": {

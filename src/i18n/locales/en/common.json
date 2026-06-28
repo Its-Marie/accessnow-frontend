@@ -17,14 +17,23 @@
     "wcag": "Built to meet WCAG AA standards",
 
     "form": {
-      "ariaLabel": "Find route",
-      "startLabel": "Start",
+      "ariaLabel": "Plan an accessible route",
+      "mobilityProfile": "Mobility profile",
+      "mobilityGroupLabel": "Choose mobility profile",
+      "chips": {
+        "wheelchair": "Wheelchair",
+        "noStairs": "No stairs",
+        "stroller": "Stroller",
+        "slowPace": "Slow pace"
+      },
+      "fromLabel": "From",
       "startPlaceholder": "Enter starting point",
-      "startHelp": "Type an address.",
-      "destinationLabel": "Destination",
+      "gpsLabel": "Use current location",
+      "swapLabel": "Swap start and destination",
+      "toLabel": "To",
       "destinationPlaceholder": "Enter destination",
-      "submit": "Find route",
-      "loginTrips": "Log in to see recent trips"
+      "submit": "Find accessible route",
+      "loginTrips": "Log in to see your recent trips"
     },
 
     "hero": {
