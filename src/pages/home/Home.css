@@ -8,11 +8,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: calc(100vh - 68px);
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .hero-copy {
-  padding: 48px 40px 48px 60px;
+  padding: 48px 48px 48px 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -308,15 +312,17 @@
 
 .hero-visual {
   margin: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.visual-frame {
+  padding: 0;
   position: relative;
   overflow: hidden;
   height: 100%;
-  width: 100%;
+  min-height: calc(100vh - 68px);
+}
+
+.visual-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
 .hero-image {
