@@ -1,14 +1,21 @@
 .landing {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 40px 22px 72px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .landing-hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 2.5rem;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 68px);
+  overflow: hidden;
+}
+
+.hero-copy {
+  padding: 48px 40px 48px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-copy h1 {
@@ -302,25 +309,23 @@
 .hero-visual {
   margin: 0;
   position: relative;
-  display: grid;
-  place-items: center;
+  overflow: hidden;
 }
 
 .visual-frame {
-  width: 100%;
-  max-width: 920px;
-  border-radius: 26px;
-  border: 1px solid #d6e3f5;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 26px 70px rgba(14, 52, 88, 0.2);
+  height: 100%;
+  width: 100%;
 }
 
 .hero-image {
-  display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: #e8f2f9;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 0;
 }
 
 /* =====================================================
@@ -328,7 +333,9 @@
    ===================================================== */
 
 .features-section {
-  margin-top: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 22px 72px;
 }
 
 .features-title {
@@ -371,14 +378,14 @@
    RESPONSIVE
    ===================================================== */
 
-@media (max-width: 520px) {
-  .landing {
-    padding: 24px 16px 72px;
-    overflow-x: hidden;
-  }
-
+@media (max-width: 768px) {
   .landing-hero {
     grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-copy {
+    padding: 32px 20px 32px 20px;
   }
 
   .hero-copy h1 {
@@ -395,12 +402,8 @@
     padding: 1rem;
   }
 
-  .visual-frame {
-    max-width: 100%;
-  }
-
-  .hero-image {
-    height: auto;
+  .hero-visual {
+    height: 260px;
   }
 }
 

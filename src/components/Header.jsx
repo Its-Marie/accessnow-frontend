@@ -54,34 +54,35 @@ export default function Header() {
           >
             {t("header.help")}
           </Link>
-          {isLoggedIn ? (
+          {isLoggedIn && (
             <button type="button" className="an-nav__link an-nav__btn" onClick={logout}>
               {t("header.logout")}
             </button>
-          ) : (
-            <Link
-              to="/login"
-              className="an-nav__link"
-              aria-current={location.pathname === "/login" ? "page" : undefined}
-            >
-              {t("header.login")}
-            </Link>
           )}
         </nav>
 
-        {/* Right side: language switcher + CTA + hamburger */}
+        {/* Right side: language switcher + login + CTA + hamburger */}
         <div className="an-header__right">
           <LanguageSwitcher />
 
           {!isLoggedIn && (
-            <button
-              type="button"
-              className="an-cta"
-              aria-label={t("header.ctaAriaLabel")}
-              onClick={() => navigate("/registration")}
-            >
-              {t("header.cta")}
-            </button>
+            <>
+              <Link
+                to="/login"
+                className="an-login-btn"
+                aria-current={location.pathname === "/login" ? "page" : undefined}
+              >
+                {t("header.login")}
+              </Link>
+              <button
+                type="button"
+                className="an-cta"
+                aria-label={t("header.ctaAriaLabel")}
+                onClick={() => navigate("/registration")}
+              >
+                {t("header.cta")}
+              </button>
+            </>
           )}
 
           <button

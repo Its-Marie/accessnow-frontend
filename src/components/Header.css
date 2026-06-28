@@ -183,6 +183,35 @@
 }
 
 /* =====================================================
+   LOGIN GHOST BUTTON
+   ===================================================== */
+
+.an-login-btn {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.an-login-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.an-login-btn:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+}
+
+/* =====================================================
    CTA BUTTON
    ===================================================== */
 
@@ -243,6 +272,11 @@
   }
 
   .an-nav {
+    display: none;
+  }
+
+  .an-login-btn,
+  .an-cta {
     display: none;
   }
 
