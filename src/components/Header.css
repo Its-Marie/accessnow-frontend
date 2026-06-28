@@ -35,16 +35,21 @@
    ===================================================== */
 
 .an-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 1000;
   background: #1a1840;
   padding: 0 40px;
   height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 

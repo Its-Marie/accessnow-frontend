@@ -7,9 +7,8 @@
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: calc(100vh - 68px);
+  height: calc(100vh - 68px);
   width: 100%;
-  max-width: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -312,8 +311,9 @@
 
 .hero-right {
   position: relative;
+  height: 100%;
   overflow: hidden;
-  min-height: calc(100vh - 68px);
+  min-width: 0;
 }
 
 .hero-right img {
@@ -332,24 +332,25 @@
 
 .features-section {
   width: 100%;
+  background: #f8f9ff;
+  padding: 80px 0;
 }
 
 .features-title {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 700;
   text-align: center;
   color: #1a1840;
-  margin: 0 0 32px;
-  padding-top: 60px;
+  margin: 0 0 48px;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 0 clamp(24px, 5vw, 80px) 72px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 60px);
 }
 
 /* =====================================================
@@ -372,15 +373,20 @@
    RESPONSIVE
    ===================================================== */
 
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
-    min-height: auto;
+    height: auto;
   }
 
   .hero-right {
     height: 300px;
-    min-height: 0;
     order: -1;
   }
 
@@ -402,18 +408,16 @@
     padding: 1rem;
   }
 
-  .features-title {
-    padding-top: 40px;
+  .features-section {
+    padding: 48px 0;
   }
 
   .features-grid {
-    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    padding: 0 20px 48px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .features-grid {
     grid-template-columns: 1fr;
   }
