@@ -35,13 +35,13 @@
    ===================================================== */
 
 .an-header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
   max-width: none;
   margin: 0;
+  padding-top: 0;
   box-sizing: border-box;
   z-index: 1000;
   background: #1a1840;

@@ -221,22 +221,24 @@ export default function Home() {
         </section>
 
         <section className="features-section" aria-labelledby="features-title">
-          <h2 id="features-title" className="features-title">
-            {t("home.features.sectionTitle")}
-          </h2>
-          <div className="features-grid">
-            {FEATURES.map(({ id, icon, iconColor, containerBg, titleKey, descriptionKey, linkColor }) => (
-              <FeatureCard
-                key={id}
-                icon={icon}
-                iconColor={iconColor}
-                containerBg={containerBg}
-                title={t(titleKey)}
-                description={t(descriptionKey)}
-                linkColor={linkColor}
-                learnMoreAriaLabel={t("home.features.learnMoreAbout", { title: t(titleKey) })}
-              />
-            ))}
+          <div className="features-inner">
+            <h2 id="features-title" className="features-title">
+              {t("home.features.sectionTitle")}
+            </h2>
+            <div className="features-grid">
+              {FEATURES.map(({ id, icon, iconColor, containerBg, titleKey, descriptionKey, linkColor }) => (
+                <FeatureCard
+                  key={id}
+                  icon={icon}
+                  iconColor={iconColor}
+                  containerBg={containerBg}
+                  title={t(titleKey)}
+                  description={t(descriptionKey)}
+                  linkColor={linkColor}
+                  learnMoreAriaLabel={t("home.features.learnMoreAbout", { title: t(titleKey) })}
+                />
+              ))}
+            </div>
           </div>
         </section>
       </main>

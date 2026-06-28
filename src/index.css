@@ -10,6 +10,12 @@ body {
   padding: 0;
 }
 
+#root,
+.App {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --ink: #0f172a;
   --muted: #475569;
