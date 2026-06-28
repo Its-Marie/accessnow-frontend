@@ -42,29 +42,25 @@
       "figcaption": "People with different mobility needs."
     },
 
-    "highlights": {
-      "ariaLabel": "Highlights",
-
-      "easy": {
-        "eyebrow": "Easy to use",
-        "title": "Clear, readable navigation",
-        "text": "Large text, strong contrast, and a calm layout make routes easy to read — on the go, in sunlight, or when you just need things to be simple."
+    "features": {
+      "sectionTitle": "Why AccessNow",
+      "learnMore": "Learn more",
+      "learnMoreAbout": "Learn more about {{title}}",
+      "stepFree": {
+        "title": "Step-free paths",
+        "description": "Routes that avoid stairs — always. Elevators, ramps, and kerb cuts included."
       },
-
-      "flex": {
-        "eyebrow": "Flexible routes",
-        "title": "Step-free when it matters",
-        "text": "Prefer routes with fewer barriers — helpful for strollers, fatigue, or mobility needs. Discover elevators, accessible parking, and public restrooms along the way, with live elevator status where available."
+      "elevator": {
+        "title": "Live elevator status",
+        "description": "Know before you go. Real-time outage alerts for elevators on your route."
       },
-
-      "steps": {
-        "eyebrow": "Simple process",
-        "title": "How it works",
-        "items": [
-          "Enter your start and destination",
-          "We find a route with fewer barriers",
-          "See helpful places along the way"
-        ]
+      "navigation": {
+        "title": "Clear navigation",
+        "description": "Large text, strong contrast, and calm layout — easy to read in sunlight or on the go."
+      },
+      "journey": {
+        "title": "For every journey",
+        "description": "Helpful for strollers, fatigue, or any mobility need — not just wheelchair users."
       }
     }
   },

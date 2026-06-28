@@ -42,29 +42,25 @@
       "figcaption": "Für Menschen mit unterschiedlichen Mobilitätsbedürfnissen."
     },
 
-    "highlights": {
-      "ariaLabel": "Highlights",
-
-      "easy": {
-        "eyebrow": "Einfach gemacht",
-        "title": "Navigation, die verständlich ist",
-        "text": "Große Schrift, starker Kontrast und ein ruhiges Design sorgen dafür, dass du deine Route jederzeit mühelos im Blick behältst — unterwegs, bei Sonnenlicht oder wenn es einfach klar und übersichtlich sein soll."
+    "features": {
+      "sectionTitle": "Warum AccessNow",
+      "learnMore": "Mehr erfahren",
+      "learnMoreAbout": "Mehr erfahren über {{title}}",
+      "stepFree": {
+        "title": "Stufenfreie Wege",
+        "description": "Routen ohne Treppen – immer. Aufzüge, Rampen und abgesenkte Bordsteine inklusive."
       },
-
-      "flex": {
-        "eyebrow": "So flexibel wie dein Alltag",
-        "title": "Stufenfrei unterwegs – wenn es darauf ankommt",
-        "text": "Wähle Routen mit weniger Barrieren und mehr Komfort — ideal mit Kinderwagen, bei Erschöpfung oder bei Mobilitätseinschränkungen. Entdecke Aufzüge, barrierefreie Parkplätze und öffentliche Toiletten entlang deines Weges – inklusive Live-Aufzugstatus, sofern verfügbar."
+      "elevator": {
+        "title": "Live-Aufzugsstatus",
+        "description": "Informiere dich vor der Fahrt. Echtzeit-Störungsmeldungen für Aufzüge auf deiner Route."
       },
-
-      "steps": {
-        "eyebrow": "In drei einfachen Schritten",
-        "title": "So funktioniert’s",
-        "items": [
-          "Start und Ziel eingeben",
-          "Wir finden eine Route mit möglichst wenigen Barrieren",
-          "Hilfreiche Orte entlang deines Weges entdecken"
-        ]
+      "navigation": {
+        "title": "Klare Navigation",
+        "description": "Große Schrift, starker Kontrast und ruhiges Design – einfach lesbar bei Sonnenlicht oder unterwegs."
+      },
+      "journey": {
+        "title": "Für jede Reise",
+        "description": "Hilfreich für Kinderwagen, Erschöpfung oder jeden Mobilitätsbedarf – nicht nur für Rollstuhlfahrer."
       }
     }
   },

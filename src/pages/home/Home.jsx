@@ -8,8 +8,51 @@ import {
   IconCurrentLocation,
   IconMapPin,
   IconFlag,
+  IconElevator,
+  IconEye,
+  IconBabyCarriage,
 } from "@tabler/icons-react"
+import FeatureCard from "../../components/FeatureCard"
 import "./Home.css"
+
+const FEATURES = [
+  {
+    id: "stepFree",
+    icon: IconWheelchair,
+    iconColor: "#0f6e56",
+    containerBg: "#e6f4ef",
+    titleKey: "home.features.stepFree.title",
+    descriptionKey: "home.features.stepFree.description",
+    linkColor: "#0f6e56",
+  },
+  {
+    id: "elevator",
+    icon: IconElevator,
+    iconColor: "#854f0b",
+    containerBg: "#fff4e6",
+    titleKey: "home.features.elevator.title",
+    descriptionKey: "home.features.elevator.description",
+    linkColor: "#854f0b",
+  },
+  {
+    id: "navigation",
+    icon: IconEye,
+    iconColor: "#185fa5",
+    containerBg: "#e6f1fb",
+    titleKey: "home.features.navigation.title",
+    descriptionKey: "home.features.navigation.description",
+    linkColor: "#185fa5",
+  },
+  {
+    id: "journey",
+    icon: IconBabyCarriage,
+    iconColor: "#993556",
+    containerBg: "#fbeaf0",
+    titleKey: "home.features.journey.title",
+    descriptionKey: "home.features.journey.description",
+    linkColor: "#993556",
+  },
+]
 
 const CHIPS = [
   { id: "wheelchair", labelKey: "home.form.chips.wheelchair", Icon: IconWheelchair },
@@ -183,28 +226,24 @@ export default function Home() {
           </figure>
         </section>
 
-        <section className="feature-grid" aria-label={t("home.highlights.ariaLabel")}>
-          <article className="feature-card">
-            <p className="eyebrow">{t("home.highlights.easy.eyebrow")}</p>
-            <h2>{t("home.highlights.easy.title")}</h2>
-            <p>{t("home.highlights.easy.text")}</p>
-          </article>
-
-          <article className="feature-card">
-            <p className="eyebrow">{t("home.highlights.flex.eyebrow")}</p>
-            <h2>{t("home.highlights.flex.title")}</h2>
-            <p>{t("home.highlights.flex.text")}</p>
-          </article>
-
-          <article className="feature-card feature-card--steps">
-            <p className="eyebrow">{t("home.highlights.steps.eyebrow")}</p>
-            <h2>{t("home.highlights.steps.title")}</h2>
-            <ol className="feature-steps">
-              <li>{t("home.highlights.steps.items.0")}</li>
-              <li>{t("home.highlights.steps.items.1")}</li>
-              <li>{t("home.highlights.steps.items.2")}</li>
-            </ol>
-          </article>
+        <section className="features-section" aria-labelledby="features-title">
+          <h2 id="features-title" className="features-title">
+            {t("home.features.sectionTitle")}
+          </h2>
+          <div className="features-grid">
+            {FEATURES.map(({ id, icon, iconColor, containerBg, titleKey, descriptionKey, linkColor }) => (
+              <FeatureCard
+                key={id}
+                icon={icon}
+                iconColor={iconColor}
+                containerBg={containerBg}
+                title={t(titleKey)}
+                description={t(descriptionKey)}
+                linkColor={linkColor}
+                learnMoreAriaLabel={t("home.features.learnMoreAbout", { title: t(titleKey) })}
+              />
+            ))}
+          </div>
         </section>
       </main>
     </>

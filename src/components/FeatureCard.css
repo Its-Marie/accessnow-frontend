@@ -1,0 +1,61 @@
+.feature-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-card:hover {
+  border-color: #4c9d7e;
+}
+
+.feature-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.feature-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1840;
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+
+.feature-card__desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.feature-card__link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.feature-card__link:hover {
+  text-decoration: underline;
+}
+
+.feature-card__link:focus-visible {
+  outline: 3px solid #4c9d7e;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
