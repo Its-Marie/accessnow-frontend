@@ -333,13 +333,18 @@
 .features-section {
   width: 100%;
   background: #f8f9ff;
-  padding: 60px 0 80px;
+  padding: 80px 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .features-inner {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
-  padding: 0 clamp(32px, 5vw, 80px);
+  box-sizing: border-box;
+  padding-left: clamp(32px, 5vw, 80px);
+  padding-right: clamp(32px, 5vw, 80px);
 }
 
 .features-title {
@@ -347,7 +352,7 @@
   font-weight: 700;
   text-align: left;
   color: #1a1840;
-  margin: 0 0 40px;
+  margin-bottom: 40px;
 }
 
 .features-grid {
@@ -416,7 +421,8 @@
   }
 
   .features-inner {
-    padding: 0 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .features-grid {
